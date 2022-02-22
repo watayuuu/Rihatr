@@ -1,0 +1,94 @@
+
+<%# ヘッダー %>
+<%= render "shared/header" %>
+<%# サイドバー %>
+<%= render "menu/side"%>
+
+<%# 自主トレフォーム %>
+<div class="creat-menu">
+  <%= form_with url: preview_menu_index_path,method: :post,local: true do |f| %>
+  <h2>メニュー処方</h2>
+  <div class ="form">
+    名前:<%=f.text_field :name , class:"name_form",placeholder:"利用者名を入力",autocomplete: 'off'%>
+    <%=f.hidden_field :tid,  id:"tid"%>
+    <%=f.hidden_field :tid1, id:"tid1"%>
+    <%=f.hidden_field :tid2, id:"tid2"%>
+    <%=f.hidden_field :tid3, id:"tid3"%>
+    <%= image_submit_tag("preview.png",class:"btn",formtarget:"blank")%>
+  </div>
+
+
+  <div class="menu-edit" >
+   <div class="number_frequency">
+     <div class ="not_editer">
+        <div class="menu_number">回数</div>
+        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <div class="number_times">回</div>
+        <div class="menu_frequency">頻度</div>
+        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <div class="set_count">セット</div>
+     </div>
+     <div class= "menu-editor"></div>
+   </div>
+      <div class="number_frequency">
+     <div class ="not_editer">
+        <div class="menu_number">回数</div>
+        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <div class="number_times">回</div>
+        <div class="menu_frequency">頻度</div>
+        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <div class="set_count">セット</div>
+     </div>
+     <div class= "menu-editor"></div>
+   </div>
+      <div class="number_frequency">
+     <div class ="not_editer">
+        <div class="menu_number">回数</div>
+        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <div class="number_times">回</div>
+        <div class="menu_frequency">頻度</div>
+        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <div class="set_count">セット</div>
+     </div>
+     <div class= "menu-editor"></div>
+   </div>
+      <div class="number_frequency">
+     <div class ="not_editer">
+        <div class="menu_number">回数</div>
+        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <div class="number_times">回</div>
+        <div class="menu_frequency">頻度</div>
+        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <div class="set_count">セット</div>
+     </div>
+     <div class= "menu-editor"></div>
+   </div>
+  </div>
+  
+   <% end %>
+</div >
+
+<%# 自主トレ一覧 %>
+<div class="training-all">
+ <h2>メニュー一覧</h2>
+ <div class ="display_list"><%= @counts%></div>
+ <div class ="display_counts"><%= "件/#{@counts}件中"%></div>
+    <div class="training">
+      <% @training.each do |training| %>
+      <div class = "training_list">
+        <div class = "training_image" draggable="true" >
+           <%=image_tag training.image4,draggable:"false",data:{tid:training.id} %>
+           <p class ="training_id">
+             <%= link_to training.training_title,menu_path(training.id),class:"training_title" %>
+               <%= check_box_tag :invalid_flag, value = "stretch", training.stretch ,disabled:"disabled",class:"invalid_flag"%>ストレッチ
+               <%= check_box_tag :invalid_flag, value = "muscle_training", training.muscle_training ,disabled:"disabled",class:"invalid_flag"%>筋トレ
+               <%= check_box_tag :invalid_flag, value = "stability", training.stability ,disabled:"disabled",class:"invalid_flag"%>スタビリティ
+             <%= button_tag "追加",class:"addbutton"%>
+           </p> 
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>
+
+

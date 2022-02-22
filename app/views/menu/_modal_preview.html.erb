@@ -1,0 +1,87 @@
+<h1>
+<%= @name%>様トレーニングメニュー
+</h1>
+
+<% @training.each do |preview| %>
+  <div class="individual">
+  <div class="training-information">
+    <div class="title">
+      <div class="training-title">
+        <%= preview.training_title%>
+      </div>
+      <div class="training-frequency">
+        <div class="number">回数</div>
+
+         10回
+         <div class="frequency">頻度</div>
+          3セット
+      </div>
+    </div>
+    <div class="mascle-information">
+      <%= image_tag preview.image, class:"muscle-image"%>
+      <div class="information">
+       <div class="mascle-name">
+          対象：<%= preview.mascle_name%>
+       </div>
+       <div class="explanation">
+          作用：<%= preview.explanation%>
+       </div>
+      </div>
+    </div>
+  </div>
+  <%# 自主トレフローチャート %>
+  <div class="training-detail">
+   <ul class="flow">
+     <li>  
+        <span class="icon">STEP.01</span>
+        <dl>
+          <dt>  
+           <%= image_tag preview.image1 ,class:"sized" %>
+         </dt>
+         <dd>
+           <%= preview.step1_comment%>
+         </dd>
+       </dl>
+     </li>
+
+      <li>
+      <span class="icon">STEP.02</span>
+        <dl>
+          <dt>   
+            <%= image_tag preview.image2 ,class:"sized" %>
+         </dt>
+          <dd>
+            <%= preview.step2_comment%>
+         </dd>
+       </dl>
+     </li>
+
+      <li>
+        <span class="icon">STEP.03</span>
+        <dl>
+          <dt>  
+           <%= image_tag preview.image3 ,class:"sized" %>
+         </dt>
+         <dd>
+           <%= preview.step3_comment%>
+         </dd>
+      </dl>
+     </li>
+
+     <li>
+      <span class="icon">STEP.04</span>
+      <dl>
+         <dt>  
+           <%= image_tag preview.image4 ,class:"sized" %>
+         </dt>
+         <dd>
+          <%= preview.step4_comment%>
+         </dd>
+       </dl>
+     </li>
+   </ul>
+  </div>
+</div>
+
+<% end %>
+

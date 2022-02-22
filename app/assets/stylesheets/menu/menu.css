@@ -1,0 +1,149 @@
+
+
+/* 自主トレ設定画面 */
+.creat-menu{
+  background-color:bisque;
+  width: calc( 100% - 220px );
+  float: right;
+}
+.creat-menu > h2{
+ 
+}
+
+.name_form{
+/* background-color:#C0C0C0; */
+height: 30px;
+}
+
+.btn{
+  height: 30px;
+  width:30px;
+  border: 1px solid;
+}
+
+.menu-edit{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.number_frequency{
+  border: solid white;
+  margin: 5px;
+}
+.not_editer{
+  display: flex;
+  justify-content: center;
+}
+.menu-editor{
+  margin:20px;
+  width:350px;
+  height: 350px;
+  border: 1px dotted #7f4600;
+  background-color:white;
+  /* padding:-40px; */
+}
+
+.menu_number , .menu_frequency{
+  display:inline-block;
+  background-color: #3399FF;
+  color: white;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+
+.number_select{
+  display:inline-block;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+.frequency_select{
+  display:inline-block;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+
+
+/* 自主トレ一覧 */
+.training-all{
+  background-color:#99FFFF;
+  width: calc(100% - 220px);
+  height:100vh;
+  float: right;
+  /* overflow: scroll; */
+
+  
+}
+
+.training_list{ 
+  margin:20px;
+}
+
+.training{
+  margin:20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+
+
+
+.training_title{
+  font-size: 20px;
+  font-weight:bolder;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+
+}
+
+/* 画像サイズ */
+img{
+  width:350px;
+  height: 350px;
+
+}
+.training_image{
+  /* border: 1px solid black; */
+  /* margin:20px; */
+    width:350px;
+  height: 350px;
+  position: relative;  /* 帯の表示位置の基準とする */
+}
+
+.training_id{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;         /* 画像の幅に合わせるため */
+  padding: 10px 40px;
+  position: absolute;  /* relativeの要素を基準にする */
+  left: 0;             /* 基準からみて左寄せ */
+  bottom: 0;           /* 基準からみて下寄せ */
+  background: rgba(0,0,0,0.5);  /* 半透明の背景。 */
+}
+
+
+
+.register{
+  height: 20px;
+  width:20px;
+  margin:0;
+  padding: 0;
+}
+
+.garbage_can{
+  height: 30px;
+  width:30px;
+  margin:0;
+}
+
+
+

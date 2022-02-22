@@ -1,0 +1,15 @@
+@media print {
+  
+  .hidden-print {
+      display: none;
+  }
+ 
+  .content-print{
+    
+  } 
+
+  body {
+    zoom: 0.4;
+    -webkit-print-color-adjust: exact;
+  }
+}

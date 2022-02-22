@@ -1,0 +1,71 @@
+
+
+/* サイドバー */
+.listings {
+  min-height: 100vh;
+  height: 100%;
+  width: 220px;
+  float: left;
+  background-color: ghostwhite;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+  position:fixed;
+  /* @media screen and (max-width: 600px) {
+    display: none;
+    position: absolute;
+    &.show {
+      display: block;
+    }
+  } */
+}
+.listings_channels{
+  height: calc(100vh - 100px);
+}
+
+.listings_header{
+  font-size: 30px;
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+  
+}
+
+.channel_list{
+  
+  padding: 0 20px;
+  /* overflow: scroll; */
+  display: flex;
+  flex-flow: column;
+  font-size: 30px;
+}
+
+
+.menu{
+  background-color:gold;
+  /* padding: 20px 0 20px;
+  margin: 10px; */
+  font-size: 20px;
+}
+
+.filter{
+
+}
+
+.testserch{
+  height: 50px;
+  width: 80%;
+  margin: 20px;
+}
+
+
+.test_img{
+  height: 150px;
+  width: 150px;
+}
+
+.filter_butten{
+  margin:10px; 
+
+}

@@ -1,0 +1,118 @@
+
+/* body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.title{
+  padding: 20px;
+  margin:20px;
+  display:inline-block;
+  display: flex;
+}
+
+.training-title{
+  font-size:60px;
+  padding:20px;
+  font-weight:bold;
+}
+
+.training-frequency{
+  font-size:30px;
+  padding: 20px;
+}
+.number, .frequency{
+  display:inline-block;
+  background-color: #3399FF;
+  color: white;
+  padding: 20px;
+}
+
+
+.mascle-information{
+  display: flex;
+ font-size:30px;
+ padding: 20px;
+ background-color: antiquewhite;
+ /* height: 400px; */
+}
+
+.muscle-image{
+  border: 1px solid;
+  margin:0px 30px ;
+  width:210px;
+  height: 210px;
+}
+
+.information{
+
+}
+
+.mascle-name{
+  
+}
+
+.explanation{
+
+}
+
+/* 自主トレフローチャート図 */
+.training-detail{
+  padding-top: 50px;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+dd {
+  margin-left: 0;
+}
+
+.flow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flow > li {
+  margin-bottom: 8vh;
+  -ms-flex-preferred-size: 48%;
+  flex-basis: 48%;
+  border: 2px solid rgb(107,144,219);
+  position: relative;
+}
+.flow > li:nth-child(odd) {
+  margin-right: auto;
+}
+
+.flow > li:not(:last-child)::before {
+  border-width: 22px;
+  border-left-color: rgb(107,144,219);
+}
+
+.icon {
+  font-size: 30px;
+  color: #fff;
+  background: rgb(107,144,219);
+  background: -moz-linear-gradient(left, rgba(107,144,219,1) 0%, rgba(102,213,233,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(107,144,219,1) 0%,rgba(102,213,233,1) 100%);
+  background: linear-gradient(to right, rgba(107,144,219,1) 0%,rgba(102,213,233,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b90db', endColorstr='#66d5e9',GradientType=1 );
+  /* padding: 5px 20px;
+  display: block;
+  border-radius: 20px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 100; */
+}
+
+

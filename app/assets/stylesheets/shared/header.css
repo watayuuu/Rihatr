@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  
+}
+header {
+  /* padding: 30px 4% 10px; */
+  top: 0;
+  width: 100%;
+  background-color: #666666;
+  display: flex;
+  align-items: center;
+  /* position:fixed; */
+}
+/* 選択されているメニューの色を変える */
+.menu_select{
+  background-color: #3399FF;
+  color: white;
+     
+  
+  
+}
+
+.menu{
+  padding: 5px; 
+  font-size :15px;
+}
+
+
+
+h1 {
+  margin: 0; padding: 0;
+  font-size: 30px;
+}
+a {	
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+nav {
+  margin: 0 0 0 auto;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+}
+li {
+  margin: 0 0 0 15px;
+  font-size: 14px;
+}
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #333333;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
