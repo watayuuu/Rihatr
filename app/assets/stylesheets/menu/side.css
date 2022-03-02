@@ -43,9 +43,6 @@
 
 
 .menu{
-  background-color:gold;
-  /* padding: 20px 0 20px;
-  margin: 10px; */
   font-size: 20px;
 }
 
@@ -54,9 +51,16 @@
 }
 
 .testserch{
-  height: 50px;
-  width: 80%;
-  margin: 20px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 200px;
 }
 
 

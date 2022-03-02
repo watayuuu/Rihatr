@@ -219,7 +219,7 @@ function preview(){
 							<div class = "training_image" draggable="true">
 								<img draggable="false" data-tid="${training.id}" src="${training.image}">
 								<p class ="training_id">
-									<a class="training_title"  href="/menu/${training.id}">${training.training_title}</a>
+									<a class="training_title"  data-remote="true" href="/menu/${training.id}">${training.training_title}</a>
 									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>ストレッチ
 									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>筋トレ
 									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />スタビリティ

@@ -146,4 +146,12 @@ img{
 }
 
 
+.display_list{
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: inline;
+  margin-right: 4px;
+  
+}
+
 

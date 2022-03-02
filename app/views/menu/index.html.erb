@@ -20,7 +20,7 @@
 
   <div class="menu-edit" >
    <div class="number_frequency">
-     <div class ="not_editer">
+    <div class ="not_editer">
         <div class="menu_number">回数</div>
         <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
         <div class="number_times">回</div>
@@ -33,10 +33,10 @@
       <div class="number_frequency">
      <div class ="not_editer">
         <div class="menu_number">回数</div>
-        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <%=f.text_field :number1 ,class:"number_select",value:"10",type:"number"%>
         <div class="number_times">回</div>
         <div class="menu_frequency">頻度</div>
-        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <%= f.text_field  :frequency_select1, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
         <div class="set_count">セット</div>
      </div>
      <div class= "menu-editor"></div>
@@ -44,10 +44,10 @@
       <div class="number_frequency">
      <div class ="not_editer">
         <div class="menu_number">回数</div>
-        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <%=f.text_field :number2 ,class:"number_select",value:"10",type:"number"%>
         <div class="number_times">回</div>
         <div class="menu_frequency">頻度</div>
-        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <%= f.text_field  :frequency_select2, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
         <div class="set_count">セット</div>
      </div>
      <div class= "menu-editor"></div>
@@ -55,10 +55,10 @@
       <div class="number_frequency">
      <div class ="not_editer">
         <div class="menu_number">回数</div>
-        <%=f.text_field :number ,class:"number_select",value:"10",type:"number"%>
+        <%=f.text_field :number3 ,class:"number_select",value:"10",type:"number"%>
         <div class="number_times">回</div>
         <div class="menu_frequency">頻度</div>
-        <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
+        <%= f.text_field  :frequency_select3, id: "frequency_select", class: "frequency_select",value:"3",type:"number"  %>
         <div class="set_count">セット</div>
      </div>
      <div class= "menu-editor"></div>
@@ -79,7 +79,9 @@
         <div class = "training_image" draggable="true" >
            <%=image_tag training.image4,draggable:"false",data:{tid:training.id} %>
            <p class ="training_id">
-             <%= link_to training.training_title,menu_path(training.id),class:"training_title" %>
+             <%= link_to menu_path(training.id), class:"training_title",remote: true do  %>
+             <%= training.training_title%>
+             <% end%>
                <%= check_box_tag :invalid_flag, value = "stretch", training.stretch ,disabled:"disabled",class:"invalid_flag"%>ストレッチ
                <%= check_box_tag :invalid_flag, value = "muscle_training", training.muscle_training ,disabled:"disabled",class:"invalid_flag"%>筋トレ
                <%= check_box_tag :invalid_flag, value = "stability", training.stability ,disabled:"disabled",class:"invalid_flag"%>スタビリティ
@@ -90,5 +92,13 @@
       <% end %>
     </div>
 </div>
+
+<%# 詳細ページのモーダル %>
+<%# # モーダルの周囲を薄暗くするマスク %>
+  <div id="mask" class="hidden"></div>
+<%# # あとからJavaScriptで<div>内のコードをshowビューのコードに置き換えます。 %>
+  <div id="modal" class="hidden">
+    <p>モーダルウィンドウ<p>
+  </div>
 
 

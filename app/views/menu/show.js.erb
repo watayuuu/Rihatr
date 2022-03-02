@@ -1,0 +1,12 @@
+$("#modal").html("<%= j(render partial: "menu/show" )%>");
+
+$("#modal").removeClass('hidden');
+$("#mask").removeClass('hidden');
+
+
+$("#mask").on('click', function(){
+  $("#modal").addClass('hidden');
+  $("#mask").addClass('hidden');
+});
+
+

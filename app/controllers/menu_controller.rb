@@ -21,27 +21,30 @@ class MenuController < ApplicationController
 
   def show
     @training = Training.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 
   def preview
     @name = params[:name]
-    @num = training_frequency_information
+    @frequency = training_frequency_information
     # binding.pry
-    
-
- 
     num = params[:tid],params[:tid1],params[:tid2],params[:tid3]
     tid = []
     for n in num
       tid.push(n.to_i)
     end
     tid.delete(0)
-   if tid.present?
-      @training = Training.find([tid])
+    if tid.present?
+      @training = Training.where(id:[tid]).to_a
+      # binding.pry
     else
-    redirect_to menu_index_path
-   end
+      redirect_to menu_index_path
+    end
   end
 
   def search
@@ -93,7 +96,7 @@ class MenuController < ApplicationController
   end
 
   def training_frequency_information
-    params.permit(:number,:frequency_select)
+    params.permit(:number,:frequency_select,:number1,:frequency_select1,:number2,:frequency_select2,:number3,:frequency_select3)
   end
 
 end
