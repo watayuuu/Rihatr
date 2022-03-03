@@ -81,9 +81,8 @@ function preview(){
 
 
 
-
 	// 印刷プレビュー機能
- document.querySelector(".btn").onclick = function() {
+ document.querySelector(".menu_btn").onclick = function() {
 		//  div情報を取得
 		let posts = document.querySelectorAll('.menu-editor');
 		let post;
@@ -140,9 +139,9 @@ function preview(){
 								<img draggable="false" data-tid="${training.id}" src="${training.image}">
 								<p class ="training_id">
 									<a class="training_title"  href="/menu/${training.id}">${training.training_title}</a>
-									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>ストレッチ
-									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>筋トレ
-									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />スタビリティ
+									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>
+									<input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
+									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />
 									<button name="button" type="submit" class="addbutton">追加</button>
 								</p> 
 							</div>
@@ -220,9 +219,9 @@ function preview(){
 								<img draggable="false" data-tid="${training.id}" src="${training.image}">
 								<p class ="training_id">
 									<a class="training_title"  data-remote="true" href="/menu/${training.id}">${training.training_title}</a>
-									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>ストレッチ
-									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>筋トレ
-									<input type="checkbox" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />スタビリティ
+									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>
+									<input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
+									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />
 									<button name="button" type="submit" class="addbutton">追加</button>
 								</p> 
 							</div>

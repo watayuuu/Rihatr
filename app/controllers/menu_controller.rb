@@ -13,7 +13,7 @@ class MenuController < ApplicationController
   def create
     @training = Training.new(training_params)
     if @training.save
-      redirect_to menu_index_path
+      redirect_to new_menu_path
     else
       render :new
     end
@@ -96,7 +96,7 @@ class MenuController < ApplicationController
   end
 
   def training_frequency_information
-    params.permit(:number,:frequency_select,:number1,:frequency_select1,:number2,:frequency_select2,:number3,:frequency_select3)
+    params.permit(:number,:frequency_select,:number1,:frequency_select1,:number2,:frequency_select2,:number3,:frequency_select3,:menu_number)
   end
 
 end

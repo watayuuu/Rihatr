@@ -3,21 +3,16 @@
 <%# <h2>トレーニング詳細画面</h2> %>
   <div class="training-information">
     <div class="title">
-      <div class="training-title">
-        <%= @training.training_title%>
-      </div>
-       <div class="mascle-information">
-      <%= image_tag @training.image, class:"muscle-image"%>
+      <div class="mascle-information">
       <div class="information">
-       <div class="mascle-name">
-          対象：<%= @training.mascle_name%>
-       </div>
-       <div class="explanation">
-          作用：<%= @training.explanation%>
-       </div>
-         <%# フィルター %>
-       <div class = "filter_form">
-        <div class="joint_filter">運動部位フィルター</div>
+      <div class="training-title"><%= @training.training_title%></div>
+      <div class="mascle-name">対象:<%= @training.mascle_name%></div>
+      <div class="explanation">作用:<%= @training.explanation%></div>
+      </div>
+      <%= image_tag @training.image, class:"muscle-image"%>
+      <%# フィルター %>
+      <div class = "filter_form">
+        <div class="joint_filter">フィルター</div>
           <ul>上肢
             <li><%= check_box_tag :invalid_flag, value = "", @training.shoulder ,disabled:"disabled"%>肩関節</li>
             <li><%= check_box_tag :invalid_flag, value = "", @training.elbow ,disabled:"disabled"%>肘関節</li>
@@ -34,60 +29,44 @@
             <li><%= check_box_tag :invalid_flag, value = "", @training.back_trank ,disabled:"disabled"%>体幹後面</li>
             <li><%= check_box_tag :invalid_flag, value = "", @training.composite ,disabled:"disabled"%>複合・その他</li>
           </ul>
-       </div>
       </div>
     </div>
   </div>
-    </div>
+  </div>
    
   <%# 自主トレフローチャート %>
   <div class="training-detail">
-    <ul class="flow">
-  <li>
-    <span class="icon">STEP.01</span>
-    <dl>
-      <dt>   
-        <%= image_tag @training.image1 ,class:"sized" %>
-      </dt>
-      <dd>
-        <%= @training.step1_comment%>
-      </dd>
-    </dl>
-  </li>
+  <ul class="flow">
+    <li>
+      <span class="icon">STEP.01</span>
+      <dl>
+        <dt><%= image_tag @training.image1 ,class:"show_sized" %></dt>
+        <dd><%= @training.step1_comment%></dd>
+      </dl>
+    </li>
+
+    <li>
+      <span class="icon">STEP.02</span>
+      <dl>
+        <dt> <%= image_tag @training.image2 ,class:"show_sized" %></dt>
+        <dd><%= @training.step2_comment%></dd>
+      </dl>
+    </li>
+
+    <li>
+      <span class="icon">STEP.03</span>
+      <dl>
+        <dt><%= image_tag @training.image3 ,class:"show_sized" %></dt>
+        <dd><%= @training.step3_comment%></dd>
+      </dl>
+    </li>
 
   <li>
-    <span class="icon">STEP.02</span>
+    <span class="icon">STEP.04</span>
     <dl>
-      <dt>   
-        <%= image_tag @training.image2 ,class:"sized" %>
-      </dt>
-      <dd>
-         <%= @training.step2_comment%>
-      </dd>
-    </dl>
-  </li>
-
-  <li>
-    <span class="icon">STEP.03</span>
-    <dl>
-      <dt>   
-        <%= image_tag @training.image3 ,class:"sized" %>
-      </dt>
-      <dd>
-         <%= @training.step3_comment%>
-      </dd>
-    </dl>
-  </li>
-
-  <li>
-    <dl>
-      <dt><span class="icon">STEP.04</span>
-      <dt>   
-        <%= image_tag @training.image4 ,class:"sized" %>
-      </dt>
-      <dd>
-         <%= @training.step4_comment%>
-      </dd>
+      
+      <dt> <%= image_tag @training.image4 ,class:"show_sized" %></dt>
+      <dd><%= @training.step4_comment%></dd>
     </dl>
   </li>
 </ul>

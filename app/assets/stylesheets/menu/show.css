@@ -1,14 +1,4 @@
 
-/* body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0 2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-
 .title{
   /* padding: 20px;
   margin:20px; */
@@ -38,10 +28,11 @@
 
 .mascle-information{
   display: flex;
- font-size:30px;
- padding: 20px;
- background-color: antiquewhite;
- /* height: 400px; */
+  font-size:30px;
+  padding: 20px;
+  background-color: antiquewhite;
+  /* height: 20%; */
+  width: 100%;
 }
 
 .muscle-image{
@@ -63,9 +54,20 @@
 
 }
 
+.joint_filter{
+}
+
+
+
 /* 自主トレフローチャート図 */
+
+.show_sized{
+  height:200px;
+  width:200px;
+  margin:10px;
+}
 .training-detail{
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 ul {
@@ -75,18 +77,24 @@ li {
   list-style-type: none;
 }
 dd {
-  margin-left: 0;
+  margin: 10px;
+  font-size:16px;
+  width: 100%;
+  /* background-color:grey; */
+}
+dl{
+  display:flex;
 }
 
 .flow {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  /* display: -webkit-box;
+  display: -ms-flexbox; */
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 .flow > li {
-  margin-bottom: 8vh;
+  margin: 10px;
   -ms-flex-preferred-size: 48%;
   flex-basis: 48%;
   border: 2px solid rgb(107,144,219);
@@ -102,7 +110,8 @@ dd {
 }
 
 .icon {
-  font-size: 30px;
+  margin:10px;
+  font-size: 40px;
   color: #fff;
   background: rgb(107,144,219);
   background: -moz-linear-gradient(left, rgba(107,144,219,1) 0%, rgba(102,213,233,1) 100%);
