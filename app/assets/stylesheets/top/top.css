@@ -1,0 +1,22 @@
+.testleft{
+  background-color: blue;
+  width: 20%;
+  float: right;
+}
+
+.testmain{
+  background-color: pink;
+  float: left;
+  width: 80%;
+}
+
+.testriget{
+  background-color:yellow;
+  float: right;
+  width: 20%;
+}
+
+.mainaaa{
+  width: 80%;
+  float: right;
+}

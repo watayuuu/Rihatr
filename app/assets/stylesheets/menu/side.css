@@ -4,12 +4,10 @@
 .listings {
   min-height: 100vh;
   height: 100%;
-  width: 220px;
-  float: left;
-  background-color: ghostwhite;
+
+
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 10;
   position:fixed;
   /* @media screen and (max-width: 600px) {
     display: none;
@@ -18,6 +16,8 @@
       display: block;
     }
   } */
+  width: 10%;
+  float: right;
 }
 .listings_channels{
   height: calc(100vh - 100px);
@@ -25,7 +25,6 @@
 
 .listings_header{
   font-size: 30px;
-  border: 1px solid lightblue;
   padding: 14px;
   color: deepskyblue;
   text-decoration: none;
@@ -64,9 +63,9 @@
 }
 
 
-.test_img{
-  height: 150px;
-  width: 150px;
+.side_img{
+  height: 100px;
+  width: 100px;
 }
 
 .filter_butten{

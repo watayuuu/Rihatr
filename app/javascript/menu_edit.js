@@ -1,7 +1,6 @@
 
 function preview(){
 	const editor =document.querySelectorAll(".menu-editor");
-
 	// メニューに表示されている数を表示
 	function displayCounts (){
 		let displayList = $(".training").children(".training_list").length;
@@ -31,43 +30,51 @@ function preview(){
 	// 自主トレの追加機能
 	function editAdd(){
 		$(".addbutton").on("click",function (){  
-			let trainingImage=  $(this).parents()[1];
-			let tid = trainingImage.children[0].dataset.tid;	
+			// training_imgを取得
+			let trainingImage=  $(this).parents(".training_list").children("a").children()[0];
+			// data-tidを取得
+			// let tid = trainingImage.children[0].dataset.tid;	
 			let img;
 		  let data;
 			if (!isSameTid(tid)) {
 				for (let i = 0; i < editor.length; i++){
 					img = editor[i].querySelector(".training_image");
 					if(!img) { 
-						data =editor[i].dataset.tid;
+						let cloneTitle= $(this).parents(".training_list").children()[0]
 						$(trainingImage).clone(true).appendTo(editor[i]);
-						let addButton = editor[i].querySelector(".addbutton");
-						$(addButton).text("削除");
-						$(addButton).removeClass();
-						$(addButton).addClass("deleteButton");
-						// 運動方法フィルター情報を取得
-						let trainingId = $(addButton).parents()[0];
-						let filterText = $(trainingId).children(".invalid_flag:checked").val();
-						let numberFrequency  =$(addButton).parents()[3];
-						let notEditer = $(numberFrequency).children()[0]
-						let menuNumberText =$(notEditer).children(".menu_number")
-						let numberTimesText =$(notEditer).children(".number_times")
-						let numberSelectVal =$(notEditer).children(".number_select")
+						let cloneImg=$(editor[i]).children()[0]
+						$(cloneTitle).clone(true).appendTo(cloneImg);
+						$(editor[i]).append(`<button type="button" class="deleteButton" >削除</button>
+						`)
+						// let addButton = editor[i].querySelector(".addbutton");
+						// $(addButton).text("削除").removeClass();
+						// $(addButton).addClass("deleteButton");
+						// 処方頻度メニューを表示
 
-					 if(filterText == "stretch" || filterText == "stability"){
-						menuNumberText.text("秒数")
-						numberTimesText.text("秒")
-						numberSelectVal.val(30)
-					 }else {
-						menuNumberText.text("回数")
-						numberTimesText.text("回")
-						numberSelectVal.val(10)
-					 };
+						// 運動方法フィルター情報を取得
+					// 	let trainingId = $(deleteButton).parents()[0];
+					// 	let filterText = $(trainingId).children(".invalid_flag:checked").val();
+					// 	let numberFrequency  =$(deleteButton).parents()[3];
+					// 	let notEditer = $(numberFrequency).children()[0]
+					// 	let menuNumberText =$(notEditer).children(".menu_number")
+					// 	let numberTimesText =$(notEditer).children(".number_times")
+					// 	let numberSelectVal =$(notEditer).children(".number_select")
+
+					//  if(filterText == "stretch" || filterText == "stability"){
+					// 	menuNumberText.text("秒数")
+					// 	numberTimesText.text("秒")
+					// 	numberSelectVal.val(30)
+					//  }else {
+					// 	menuNumberText.text("回数")
+					// 	numberTimesText.text("回")
+					// 	numberSelectVal.val(10)
+					//  };
 
 						// 削除ボタンを押したとき画像を削除する
 						$(".deleteButton").on("click",function(){
-							let cloneImg=  $(this).parents()[1];
+							let cloneImg=  $(this).prevAll();
 							$(cloneImg).remove();
+							$(this).remove();
 						});
 						break;
 					}
@@ -94,9 +101,10 @@ function preview(){
 		for (var i = 0; i < posts.length; i++) {
 			// 子要素とカスタムデータの情報を取得
 			post = posts[i].children[0];
+
 			if (post){
-			 data =post.children[0].dataset.tid;
-			 tid.push(data);
+				data =post.children[0].dataset.tid;
+				tid.push(data);
 			}	
 		}
 		document.getElementById("tid").value = tid[0]
@@ -214,18 +222,27 @@ function preview(){
 						stability = "checked="
 					}
 					$('.training').append(
+					
+
 						`<div class = "training_list">
-							<div class = "training_image" draggable="true">
-								<img draggable="false" data-tid="${training.id}" src="${training.image}">
-								<p class ="training_id">
-									<a class="training_title"  data-remote="true" href="/menu/${training.id}">${training.training_title}</a>
-									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>
-									<input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
-									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />
-									<button name="button" type="submit" class="addbutton">追加</button>
-								</p> 
-							</div>
-						</div>`
+            <div class="training_title">
+						${training.training_title}
+            </div>
+            <a data-remote="true" href="/menu/${training.id}">
+            <div class = "training_image" draggable="true" >
+              <img data-tid="${training.id}" class="training_img" src="${training.image}">
+            </div>
+</a>            <div class ="training_information">
+              <input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag" ${stretch} />
+              <input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
+              <input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag"${stability} />
+              <button name="button" type="submit" class="addbutton">追加する</button>
+            </div> 
+         
+        </div>`
+
+
+
 					);
 				});
 				displayCounts();

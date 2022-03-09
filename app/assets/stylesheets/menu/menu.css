@@ -1,36 +1,71 @@
 
-
-/* 自主トレ設定画面 */
-.creat-menu{
-  background-color:bisque;
-  width: calc( 100% - 220px );
+.main_menu{
+  width: 90%;
   float: right;
+  background-color: aliceblue;
+}
+/* 自主トレ設定画面 */
+.create-menu{
+  float: right;
+  width: 15%;
+  background-color:white;
   
+  /* position:fixed;
+  right: 0;  */
+
 }
 .menu_form{
-  /* padding:20px; */
+  /* padding:20px;
+  font-size:25px; */
+
 }
 
 .form{
-  display:flex;
+
+  /* display:flex; */
 
 }
 .name_form{
-/* background-color:#C0C0C0; */
-height: 30px;
+  width: 90%;
+  height:50px;
+  padding:20px;
+  font-size:25px;
+  margin: 10px;
+  text-align    : center; 
 }
 
+
+
 .menu_btn{
-  height: 30px;
-  width:30px;
-  border: 1px solid;
-  /* padding:20px; */
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 20pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;       
+  background    : #3399FF;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #3399FF;    /* 枠の指定 */
+  width: 90%;
+  height:50px;
+  margin: 10px;
+
+}
+.menu_btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+
 }
 
 .menu-edit{
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  
 
 }
 
@@ -38,6 +73,7 @@ height: 30px;
   border: solid white;
   margin: 5px;
   position: relative; 
+ 
 }
 .not_editer{
   display: flex;
@@ -47,18 +83,21 @@ height: 30px;
   right: 0;
   top:25px;
   margin: auto;
-
   z-index: 1;
+  display: none;
 }
 .menu-editor{
   margin:20px;
-  width:350px;
-  height: 350px;
   border: 1px dotted #7f4600;
   background-color:white;
-  /* padding:-40px; */
- 
-  
+  /* width:10vw;
+  min-width: 250px;
+  height: 10vw;
+  min-height:250px; */
+  width:250px;
+  height:250px;
+  display: flex;
+
 }
 
 .menu_number , .menu_frequency{
@@ -87,63 +126,96 @@ height: 30px;
 }
 
 
+
+/* 一覧数表示 */
+.display_list{
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: inline;
+  margin-right: 4px;
+  display:flex;
+}
+
+.count_index{
+  display: flex;
+}
+
+.display_counts{
+  padding-top: 10px;
+}
 /* 自主トレ一覧 */
 .training-all{
-  /* background-color:#99FFFF; */
-  width: calc(100% - 220px);
-  height:100vh;
-  float: right;
-  /* overflow: scroll; */
-
-  
+  float: left;
+  width: 80%;
 }
 
-.training_list{ 
-  margin:20px;
-}
 
 .training{
-  margin:20px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  
+  margin:30px;
+  width: 100%;
 }
+.training_list{ 
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background-color: #fff;  
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  margin:10px;
+  color: #000;
+}
+
+
 
 
 
 .training_title{
-  font-size: 20px;
-  font-weight:bolder;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-
+  position: absolute;
+  width: 100%;
 }
+
+
+
 
 /* 画像サイズ */
 img{
-  width:350px;
-  height: 350px;
+  /* width:10vw;
+  min-width: 250px;
+  height: 10vw;
+  min-height:250px; */
+  width:250px;
+  height:250px;
+}
 
-}
+
+
 .training_image{
-  /* border: 1px solid black; */
-  /* margin:20px; */
-    width:350px;
-  height: 350px;
-  position: relative;  /* 帯の表示位置の基準とする */
+  overflow: hidden;
+  cursor: pointer;
 }
+.training_image .training_img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.training_image:hover .training_img{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
 
 .training_id{
   display: flex;
   justify-content: space-between;
-  width: 100%;         /* 画像の幅に合わせるため */
+  /* 画像の幅に合わせるため */
+  width: 100%;         
   padding: 10px 40px;
-  position: absolute;  /* relativeの要素を基準にする */
+  /* relativeの要素を基準にする */
+  position: absolute;  
   left: 0;            
-  bottom: 0;           
-  background: rgba(0,0,0,0.5);  /* 半透明の背景。 */
+  bottom: 0;    
+  /* 半透明の背景。 */       
+  background: rgba(0,0,0,0.5);  
 }
 
 
@@ -162,18 +234,25 @@ img{
 }
 
 
-.display_list{
-  font-size: 1.4rem;
-  font-weight: 700;
-  display: inline;
-  margin-right: 4px;
-  display:flex;
+
+
+.addbutton{
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 20pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;       
+  background    : #3399FF;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #3399FF;    /* 枠の指定 */
+  width:100%;
 }
 
-.count_index{
-  display: flex;
-}
+.addbutton:hover {
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 
-.display_counts{
-  padding-top: 10px;
 }
