@@ -29,7 +29,6 @@
   width: 90%;
   height:50px;
   padding:20px;
-  font-size:25px;
   margin: 10px;
   text-align    : center; 
 }
@@ -90,12 +89,12 @@
   margin:20px;
   border: 1px dotted #7f4600;
   background-color:white;
-  /* width:10vw;
-  min-width: 250px;
+  width:10vw;
+  min-width: 100px;
   height: 10vw;
-  min-height:250px; */
-  width:250px;
-  height:250px;
+  min-height:100px;
+  /* width:250px;
+  height:250px; */
   display: flex;
 
 }
@@ -172,7 +171,7 @@
 
 .training_title{
   position: absolute;
-  width: 100%;
+  /* width: 100%; */
 }
 
 
@@ -180,12 +179,12 @@
 
 /* 画像サイズ */
 img{
-  /* width:10vw;
-  min-width: 250px;
+  width:10vw;
+  min-width: 100px;
   height: 10vw;
-  min-height:250px; */
-  width:250px;
-  height:250px;
+  min-height:100px;
+  /* width:250px;
+  height:250px; */
 }
 
 
