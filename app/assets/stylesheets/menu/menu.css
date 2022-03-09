@@ -178,7 +178,7 @@
 
 
 /* 画像サイズ */
-img{
+.training_img{
   width:10vw;
   min-width: 100px;
   height: 10vw;
@@ -238,10 +238,10 @@ img{
 .addbutton{
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
-  font-size     : 20pt;        /* 文字サイズ */
+  font-size     :15px;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
-  padding       : 12px 12px;       
+  padding       : 10px 10px;       
   background    : #3399FF;     /* 背景色     */
   color         : #ffffff;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */

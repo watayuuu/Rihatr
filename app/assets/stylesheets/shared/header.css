@@ -15,6 +15,13 @@ header {
   align-items: center;
   /* position:fixed; */
 }
+
+
+
+.header_title{
+  font-size:20px;
+  font-weight:40px;
+}
 /* 選択されているメニューの色を変える */
 .menu_select{
   background-color: #3399FF;
