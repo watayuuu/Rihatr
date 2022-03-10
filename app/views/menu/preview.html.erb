@@ -1,30 +1,32 @@
 <div class ="hidden-print">
   <input type="submit" value="印刷" class="tes" onclick="window.print();">
 </div>
-<h1>
-  <%if @name.present?%>
-    <%= "#{@name}様トレーニングメニュー" %>
-  <% end%>
-    <div> 
-    <%= "作成日:#{Date.today}"%>
+  <div class ="name-day">
+    <%if @name.present?%>
+      <%= "#{@name}様トレーニングメニュー" %>
+    <% end%>
+      <div> 
+      <%= "作成日:#{Date.today}"%>
+    </div>
   </div>
-  </h1>
   <div class ="content-print">
     <% @training.each_with_index do |preview , i| %>
     <div class="individual">
       <div class="training-information">
         <div class="title">
           <div class="training-title">
+          <%= "#{i+1}."%>
             <%= preview.training_title%>
           </div>
+          <%= "ID:#{preview.id}"%>
           <div class="training-frequency">
           <% if i == 0%>
-              <div class="number">回数</div>
+              <div class="preview-number">回数</div>
               <%=@frequency[:number] %>
-              <div class="number_times">回</div>
-              <div class="frequency">頻度</div>
+              <div class="preview-number_times">回</div>
+              <div class="preview-frequency">頻度</div>
               <%= @frequency[:frequency_select]%>
-              <div class="set_count">セット</div>
+              <div class="preview-set_count">セット</div>
           <%end%>
           <% if i == 1%>
               <div class="number">回数</div>
@@ -73,7 +75,7 @@
             <span class="icon">STEP.01</span>
             <dl>
              <dt>
-              <%= image_tag preview.image1 ,class:"sized" %>
+              <%= image_tag preview.image1 ,class:"preview-sized" %>
             </dt>
             <dd>
               <%= preview.step1_comment%>
@@ -85,7 +87,7 @@
           <span class="icon">STEP.02</span>
             <dl>
               <dt> 
-                <%= image_tag preview.image2 ,class:"sized" %>
+                <%= image_tag preview.image2 ,class:"preview-sized" %>
             </dt>
               <dd>
                 <%= preview.step2_comment%>
@@ -97,7 +99,7 @@
             <span class="icon">STEP.03</span>
             <dl>
               <dt> 
-              <%= image_tag preview.image3 ,class:"sized" %>
+              <%= image_tag preview.image3 ,class:"preview-sized" %>
             </dt>
             <dd>
               <%= preview.step3_comment%>
@@ -109,7 +111,7 @@
           <span class="icon">STEP.04</span>
           <dl>
             <dt> 
-              <%= image_tag preview.image4 ,class:"sized" %>
+              <%= image_tag preview.image4 ,class:"preview-sized" %>
             </dt>
             <dd>
               <%= preview.step4_comment%>
@@ -119,7 +121,6 @@
       </ul>
       </div>
     </div>
-    <div>大崎ミッドタウン リハビリテーション科</div>
     <div class="pagebreak"></div>
     <% end %>
 </div>

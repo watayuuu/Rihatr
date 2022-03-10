@@ -70,11 +70,13 @@
 .musle_filter_list{
   height: 100px;
   width: 100px;
+  margin:10px;
 }
 
 .musle_img{
   height: 80%;
   width: 80%;
+padding: 5px;
 }
 
 .testaaa{

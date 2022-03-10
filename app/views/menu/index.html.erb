@@ -8,7 +8,7 @@
   <div class="create-menu">
     <%= form_with url: preview_menu_index_path,method: :post,local: true do |f| %>
     <div class ="form">
-      <%= f.submit(class:"menu_btn",value:"作成")%>
+      <%= f.submit(class:"menu_btn",value:"作成",formtarget: "blank")%>
     <div class ="menu_form"><%=f.text_field :name , class:"name_form",placeholder:"利用者名を入力",autocomplete: 'off'%></div>
       <%=f.hidden_field :tid,  id:"tid"%>
       <%=f.hidden_field :tid1, id:"tid1"%>

@@ -9,6 +9,7 @@
   float: right;
   width: 15%;
   background-color:white;
+  height: 100vh;
   
   /* position:fixed;
   right: 0;  */
@@ -86,7 +87,7 @@
   display: none;
 }
 .menu-editor{
-  margin:20px;
+  margin:0 20px ;
   border: 1px dotted #7f4600;
   background-color:white;
   width:10vw;
