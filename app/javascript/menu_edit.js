@@ -46,8 +46,14 @@ function preview(){
 						$(cloneTitle).clone(true).appendTo(cloneImg);
 						$(editor[i]).append(`<button type="button" class="deleteButton" >削除</button>
 						`)
+						// let trainingInformation = $(this).parent()[0]
+						// $(trainingInformation).clone(true).appendTo(editor[i]);
+
+
+
 						// let addButton = editor[i].querySelector(".addbutton");
 						// $(addButton).text("削除").removeClass();
+						// $(addButton).removeClass();
 						// $(addButton).addClass("deleteButton");
 						// 処方頻度メニューを表示
 

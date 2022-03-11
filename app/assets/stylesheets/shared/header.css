@@ -14,13 +14,17 @@ header {
   display: flex;
   align-items: center;
   /* position:fixed; */
+
+
 }
 
 
 
-.header_title{
+.header_title a{
   font-size:20px;
   font-weight:40px;
+  color: white;
+
 }
 /* 選択されているメニューの色を変える */
 .menu_select{
@@ -31,9 +35,16 @@ header {
   
 }
 
-.menu{
+.menu {
   padding: 5px; 
   font-size :15px;
+
+}
+
+.menu a{
+
+  color: white;
+
 }
 
 
@@ -44,11 +55,12 @@ h1 {
 }
 a {	
   text-decoration: none;
-  color: white;
   padding: 10px;
 }
 nav {
   margin: 0 0 0 auto;
+  
+  
 }
 ul {
   list-style: none;

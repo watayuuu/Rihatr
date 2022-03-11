@@ -1,6 +1,8 @@
 
 <div class="show_individual">
-
+      <div class ="training-menu-edit">
+        <%= button_to "削除",  menu_path,method: :delete ,class:"menu-delete",data: { confirm: '削除しますか？' }%>
+      </div>
   <%# <h2>トレーニング詳細画面</h2> %>
   <div class="show_training-information">
       <div class="show_mascle-information">
@@ -32,6 +34,7 @@
             </ul>
         </div>
     </div>
+
   </div>
    
   <%# 自主トレフローチャート %>

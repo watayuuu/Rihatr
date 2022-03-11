@@ -28,6 +28,13 @@ class MenuController < ApplicationController
     end
   end
 
+  def destroy
+    training = Training.find(params[:id])
+    
+    training.destroy
+    redirect_to menu_index_path
+  end
+
 
   def preview
     @name = params[:name]
