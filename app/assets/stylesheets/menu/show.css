@@ -36,6 +36,7 @@
 
 }
 
+
 .show_muscle-image{
   border: 1px solid;
   width:150px;
@@ -54,6 +55,12 @@
   padding: 20px;
 }
 
+
+
+
+.show_joint_filter ~ ul{
+  display:flex;
+}
 
 .mascle-information{
   display: flex;

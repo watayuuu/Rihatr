@@ -65,6 +65,8 @@ class MenuController < ApplicationController
   end
 
   def filter
+    mascle_name ='mascle_name LIKE?', "#{params[:mascleSearch]}"
+
     sholder ='shoulder LIKE ?', "#{params[:sholderFilter]}"
     elbow ='elbow LIKE ?', "#{params[:elbowFilter]}"
     hand_fingers ='hand_fingers LIKE ?', "#{params[:handFilter]}"
@@ -88,7 +90,8 @@ class MenuController < ApplicationController
 
     
 
-    @filter = Training.where(sholder). or Training.where(elbow). or Training.where(hand_fingers). or Training.where(hip). or Training.where(knee). or Training.where(ankle). or Training.where(front_trank). or Training.where(back_trank). or Training.where(composite).or Training.where(supine).or Training.where(prone).or Training.where(lateral).or Training.where(sitting).or Training.where(standing).or Training.where(fours).or Training.where(stretch).or Training.where(muscle_training).or Training.where(stability)
+    @filter = Training.where(sholder). or Training.where(elbow). or Training.where(hand_fingers). or Training.where(hip). or Training.where(knee). or Training.where(ankle). or Training.where(front_trank). or Training.where(back_trank). or Training.where(composite).or Training.where(supine).or Training.where(prone).or Training.where(lateral).or Training.where(sitting).or Training.where(standing).or Training.where(fours).or Training.where(stretch).or Training.where(muscle_training).or Training.where(stability).or Training.where(mascle_name)
+
 
     respond_to do |format|
       format.html { redirect_to :root }

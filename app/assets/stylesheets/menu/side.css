@@ -6,8 +6,10 @@
   height: 100%;
   width: 10%;
   float: left;
+
 }
 .listings_channels{
+
 }
 
 .listings_header{
@@ -21,15 +23,17 @@
 
 
 .muscle-filter{
-  margin:10px;
   text-align: center;
 }
+
+
 
 .muscleserch{
   margin:10px;
   width: 90%;
-  height:50px;
+  height:32px;
   text-align: center;
+  font-size:12px;
 }
 
 
@@ -42,3 +46,68 @@
   height: 100px;
   width: 100px;
 }
+
+.filter_list{
+  width:100%;
+  height:100vh;
+  overflow: scroll;
+}
+
+.motion_filter{
+  text-align: center;
+
+}
+
+.motion_filter_list{
+  text-align: center;
+
+}
+
+.position_filter {
+  text-align: center;
+}
+.position_filter_list{
+  display: none;
+  margin:5px;
+  text-align: center;
+
+}
+
+.joint_filter{
+  text-align: center;
+  /* width:100%;
+  height:50vh;
+  overflow: scroll; */
+}
+
+.joint_filter_list{
+  display: none;
+  margin:5px;
+  text-align: center;
+
+}
+
+
+
+.filter_conditions{
+  height: 60px;
+  width: 80%;
+  font-size:5px;
+  margin-top:5px;
+  /* display:flex; */
+  
+}
+
+.filter_img{
+  width: 50px;
+  height: 50px;
+}
+
+.testaaa{
+  background-color:#3399FF;
+}
+
+.motion_conditions{
+  height: 120px;
+}
+

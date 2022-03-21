@@ -1,16 +1,50 @@
 <div class="listings">
   <div class="listings_channels">
-    <%# <div class="listings_header">検索メニュー</div> %>
-    <div class = "muscle-filter"> 筋名で検索
-      <form>
+      <%# 筋名での検索画面 %>
+    <div class = "muscle-filter"> 
         <input type="search" class="muscleserch" placeholder="筋名を入力">
-      </form>
+        <button type="button" class="muscleserch111">検索</button>
     </div>
-     <%# <div>選択中</div>
-    <div>ここが選択した内容に書き換わる</div> %>
+    <%# ------------------------------------------------------------- %>
+
     <div class ="filter_list">
-      <li><button class="filter_butten">部位から選択<img src="/assets/kintr.jpg" class="side_img"></button></li>
-      <li><button class="filter_butten">肢位から選択<img src="/assets/exercise_posture.jpg" class="side_img"></button></li>
+      <div class ="motion_filter">
+      運動方法
+      </div>
+      <ul class="motion_filter_list">
+        <li ><button class="filter_conditions" id="stretchFilter" value="ストレッチ">ストレッチ<img class="filter_img"src="/assets/stretch.png"></button></li>
+        <li ><button class="filter_conditions" id="muscle_trainingFilter" value="筋トレ">筋トレ<img class="filter_img"src="/assets/Muscle.png"></button></li>
+        <li ><button class="filter_conditions" id="stabilityFilter" value="スタビリティ">スタビリティ<img class="filter_img"src="/assets/balance.png"></button></li>
+      </ul>
+
+      <div class ="position_filter">
+      肢位別
+      </div>
+      <ul class =position_filter_list>
+        <li ><button class="filter_conditions" id="supineFilter" value="背臥位">背臥位<img class="filter_img"src="/assets/Supine.png"></button></li>
+        <li ><button class="filter_conditions" id="proneFilter" value="腹臥位">腹臥位<img class="filter_img"src="/assets/Prone.png"></button></li>
+        <li ><button class="filter_conditions" id="lateralFilter" value="側臥位">側臥位<img class="filter_img"src="/assets/Lateral.png"></button></li>
+        <li ><button class="filter_conditions" id="sittingFilter" value="座位">座位<img class="filter_img"src="/assets/Sitting.png"></button></li>
+        <li ><button class="filter_conditions" id="standingFilter" value="立位">立位<img class="filter_img"src="/assets/Standing.png"></button></li>
+        <li ><button class="filter_conditions" id="foursFilter" value="四つ這い">四つ這い<img class="filter_img"src="/assets/fours.png"></button></li>
+      </ul>
+      
+      <div class ="joint_filter">
+          部位別
+      </div>
+          <ul class ="joint_filter_list">
+            <li ><button class="filter_conditions" id="sholderFilter" value="肩関節">肩関節<img class="filter_img"src="/assets/sholder.jpg"></button></li>
+            <li ><button class="filter_conditions" id="elbowFilter" value="肘関節">肘関節<img class="filter_img"src="/assets/elbow.jpg"></button></li>
+            <li ><button class="filter_conditions" id="handFilter" value="手関節">手関節<img class="filter_img"src="/assets/hand.jpg"></button></li>
+            <li ><button class="filter_conditions" id="hipFilter" value="股関節">股関節<img class="filter_img"src="/assets/hip.jpg"></button></li>
+            <li ><button class="filter_conditions" id="kneeFilter" value="膝関節">膝関節<img class="filter_img"src="/assets/knee.jpg"></button></li>
+            <li ><button class="filter_conditions" id="ankleFilter" value="足関節">足関節<img class="filter_img"src="/assets/ankle.jpg"></button></li>
+            <li ><button class="filter_conditions" id="frontTrunkFilter" value="体幹全面">体幹全面<img class="filter_img"src="/assets/front_trank.jpg"></button></li>
+            <li ><button class="filter_conditions" id="backTrunkFilter" value="体幹後面">体幹後面<img class="filter_img"src="/assets/back_trank.jpg"></button></li>
+            <li ><button class="filter_conditions" id="compositeFilter" value="複合">複合・その他<img class="filter_img"src="/assets/IMG_6501.jpg"></button></li>
+          </ul>
+      <%# <li><button class="filter_butten">部位から選択<img src="/assets/kintr.jpg" class="side_img"></button></li> %>
+      <%# <li><button class="filter_butten">肢位から選択<img src="/assets/exercise_posture.jpg" class="side_img"></button></li> %>
       <%# <li><button class="filter_butten">パッケージから選択<img src="/assets/checklist.jpg" class="test_img"></button></li> %>
     </div>
   </div>

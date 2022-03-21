@@ -1,6 +1,8 @@
 
 function preview(){
 	const editor =document.querySelectorAll(".menu-editor");
+	let filter1;
+	let title;
 	// メニューに表示されている数を表示
 	function displayCounts (){
 		let displayList = $(".training").children(".training_list").length;
@@ -33,54 +35,55 @@ function preview(){
 			// training_imgを取得
 			let trainingImage=  $(this).parents(".training_list").children("a").children()[0];
 			// data-tidを取得
-			// let tid = trainingImage.children[0].dataset.tid;	
 			let img;
-		  let data;
 			if (!isSameTid(tid)) {
 				for (let i = 0; i < editor.length; i++){
 					img = editor[i].querySelector(".training_image");
 					if(!img) { 
 						let cloneTitle= $(this).parents(".training_list").children()[0]
-						$(trainingImage).clone(true).appendTo(editor[i]);
 						let cloneImg=$(editor[i]).children()[0]
+						let trainingInformation =$(this).prev()
+						$(trainingImage).clone(true).appendTo(editor[i]);
 						$(cloneTitle).clone(true).appendTo(cloneImg);
+						$(trainingInformation).clone(true).appendTo(editor[i]);
 						$(editor[i]).append(`<button type="button" class="deleteButton" >削除</button>
 						`)
-						// let trainingInformation = $(this).parent()[0]
-						// $(trainingInformation).clone(true).appendTo(editor[i]);
 
-
-
-						// let addButton = editor[i].querySelector(".addbutton");
-						// $(addButton).text("削除").removeClass();
-						// $(addButton).removeClass();
-						// $(addButton).addClass("deleteButton");
 						// 処方頻度メニューを表示
+						let notEditer =	$(editor[i]).prev();
+					
+						
+
+
+
+
 
 						// 運動方法フィルター情報を取得
-					// 	let trainingId = $(deleteButton).parents()[0];
-					// 	let filterText = $(trainingId).children(".invalid_flag:checked").val();
-					// 	let numberFrequency  =$(deleteButton).parents()[3];
-					// 	let notEditer = $(numberFrequency).children()[0]
-					// 	let menuNumberText =$(notEditer).children(".menu_number")
-					// 	let numberTimesText =$(notEditer).children(".number_times")
-					// 	let numberSelectVal =$(notEditer).children(".number_select")
+						let filterText = $(trainingInformation).children(".invalid_flag:checked").val();
+						let menuNumberText =$(notEditer).children(".menu_number")
+						let numberTimesText =$(notEditer).children(".number_times")
+						let numberSelectVal =$(notEditer).children(".number_select")
 
-					//  if(filterText == "stretch" || filterText == "stability"){
-					// 	menuNumberText.text("秒数")
-					// 	numberTimesText.text("秒")
-					// 	numberSelectVal.val(30)
-					//  }else {
-					// 	menuNumberText.text("回数")
-					// 	numberTimesText.text("回")
-					// 	numberSelectVal.val(10)
-					//  };
-
+							// フィルターによって運動頻度を書き換える処理
+						if(filterText == "stretch" || filterText == "stability"){
+							menuNumberText.text("秒数")
+							numberTimesText.text("秒")
+							numberSelectVal.val(30)
+						}else {
+							menuNumberText.text("回数")
+							numberTimesText.text("回")
+							numberSelectVal.val(10)
+						};
+						notEditer.css("display", "flex")
+						notEditer.show()
 						// 削除ボタンを押したとき画像を削除する
 						$(".deleteButton").on("click",function(){
 							let cloneImg=  $(this).prevAll();
+							let deleteEditer = $(this).parent().prev();
+							// let deleteEditer =$(this).prev()
 							$(cloneImg).remove();
 							$(this).remove();
+							deleteEditer.hide()
 						});
 						break;
 					}
@@ -95,7 +98,7 @@ function preview(){
 
 
 	// 印刷プレビュー機能
- document.querySelector(".menu_btn").onclick = function() {
+	$(".menu_btn").on("click",function (){
 		//  div情報を取得
 		let posts = document.querySelectorAll('.menu-editor');
 		let post;
@@ -117,101 +120,79 @@ function preview(){
 		document.getElementById("tid1").value = tid[1]
 		document.getElementById("tid2").value = tid[2]
 		document.getElementById("tid3").value = tid[3]
-	};
+	});
 		
-	// あいまい検索機能
-	$(function () {
-		$('.testserch').on('keyup', function () { 
-			//  キーボードを入力したタイミングで以下の処理を実行する
-			let title = $('.testserch').val();
-		
-			$.ajax({
-				type: 'GET', // リクエストのタイプ
-				url: '/menu/search', // リクエストを送信するURL
-				data: {mascle_search:title}, // サーバーに送信するデータ
-				dataType: 'json' // サーバーから返却される型
-			}).done(function (data) {
-		
-				if(data.length){
-					$('.training_list').remove();
-					$(data).each(function(i,training) {
-						let stretch;
-					let muscleTraining; 
-					let stability;
-					if(training.stretch == true){
-					stretch = "checked="
-					}
-					if(training.muscle_training == true){
-						muscleTraining = "checked="
-					}
-					if(training.stability == true){
-						stability = "checked="
-					}
-					$('.training').append(
-						`<div class = "training_list">
-							<div class = "training_image" draggable="true">
-								<img draggable="false" data-tid="${training.id}" src="${training.image}">
-								<p class ="training_id">
-									<a class="training_title"  href="/menu/${training.id}">${training.training_title}</a>
-									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag"  ${stretch}>
-									<input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
-									<input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag" ${stability} />
-									<button name="button" type="submit" class="addbutton">追加</button>
-								</p> 
-							</div>
-						</div>`
-					);
-				});
-					displayCounts();
-				}else{
-					$('.training_list').remove();
-					$(".training").append(
-						`<div class = "training_list">該当データがありません</div>`
-					)};
-				editAdd();
-			});
-		});
+
+
+
+
+	// $('.muscleserch').on('keyup', function () { 
+	// 	//  キーボードを入力したタイミングで以下の処理を実行する
+	// 	let muscleSerchVal = $('.muscleserch').val();
+	// 	console.log(muscleSerchVal)
+	// 	if($(muscleSerchVal) == true){
+	// 		$('.muscleserch111').prop("disabled", false);
+	// 	}
+	// });
+
+	// });
+	// $(".muscleserch").keypress(function(e) {
+	// 	if (e.keyCode == 13) {
+	// 		// ここに処理を記述
+	// 		title = $('.muscleserch').val();
+	// 	console.log(title)
+	// 		return false;
+	// 	}
+	// });
+
+
+
+
+
+	$(".filter_conditions").on('click', function() {
+		// クリック時に背景を追加
+		$(this).toggleClass("testaaa");
+
 	});
 
 	
+
 	
-	//  モーダルの内のフィルター機能
-	$(".musle_filter_list").on('click', function(){
+	//  サイドメニューでのフィルター機能
+	$(".filter_conditions,.muscleserch111").on('click', function(){
 		let val; 
 		let filterVal;
-		let filterCon;
-		// クリック時に背景を追加
-		$(this).toggleClass("testaaa");
-		
-
-		if($(".musle_filter_list").hasClass('testaaa') == true){
-			filterCon ='/menu/filter'
-			filterVal = {sholderFilter:"",elbowFilter:"",handFilter:"",hipFilter:"",kneeFilter:"",ankleFilter:"",frontTrunkFilter:"",backTrunkFilter:"",compositeFilter:"",supineFilter:"",proneFilter:"",lateralFilter:"",sittingFilter:"",standingFilter:"",foursFilter:"",stretchFilter:"",muscle_trainingFilter:"",stabilityFilter:""};
-		}else{
-			filterCon ='/menu/search'
-			filterVal = {mascle_search:""}
-		};
+		let filter2 = {sholderFilter:"",elbowFilter:"",handFilter:"",hipFilter:"",kneeFilter:"",ankleFilter:"",frontTrunkFilter:"",backTrunkFilter:"",compositeFilter:"",supineFilter:"",proneFilter:"",lateralFilter:"",sittingFilter:"",standingFilter:"",foursFilter:"",stretchFilter:"",muscle_trainingFilter:"",stabilityFilter:""};
+		title = $('.muscleserch').val();
+		filter1 ={mascleSearch:title}
 
 
 
 		// クリック時に値を取得
-		$(".musle_filter_list").each(function(i, elem) {
+		$(".filter_conditions").each(function(i, elem) {
 			if($(elem).hasClass('testaaa')){
 				val = "1";
 			}else{
 				val =""
 			}
-			filterVal[elem.id]=val;
+			filter2[elem.id]=val;
 		});
-   
+
+		console.log(filter1)
+		console.log(filter2)
+		filterVal = Object.assign(filter1, filter2);
+		// console.log(filterVal)
+
+	
+
 
 		$.ajax({
 			type: 'GET', // リクエストのタイプ
-			url: (filterCon), // リクエストを送信するURL
+			url: ('/menu/filter'), // リクエストを送信するURL
 			data: (filterVal), // サーバーに送信するデータ
 			dataType: 'json' // サーバーから返却される型
 		}).done(function (data) {
-			console.log(data)
+			// console.log(data)
 			if(data.length){
 				$('.training_list').remove();
 				$(data).each(function(i,training) {
@@ -238,13 +219,13 @@ function preview(){
             <div class = "training_image" draggable="true" >
               <img data-tid="${training.id}" class="training_img" src="${training.image}">
             </div>
-</a>            <div class ="training_information">
+						</a>
+						<div class ="training_information">
               <input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag" ${stretch} />
               <input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
               <input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag"${stability} />
               <button name="button" type="submit" class="addbutton">追加する</button>
             </div> 
-         
         </div>`
 
 

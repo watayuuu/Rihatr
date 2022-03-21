@@ -4,10 +4,11 @@
   top: 50px;
   /* left: 50%; */
   display: none;
-  width: calc( 100% - 220px );
+  /* width: calc( 100% - 220px ); */
+  width:100%;
   /* margin-left: -490px; */
-  border-radius: 5px;
-  background-color: blue;
+  /* border-radius: 5px;
+  background-color: blue; */
 
 
 }
@@ -67,18 +68,10 @@
   font-size: 20px;
 }
 
-.musle_filter_list{
-  height: 100px;
-  width: 100px;
-  margin:10px;
+.joint_filter_modal >li{
+  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+
 }
 
-.musle_img{
-  height: 80%;
-  width: 80%;
-padding: 5px;
-}
-
-.testaaa{
-  background-color:#3399FF;
-}

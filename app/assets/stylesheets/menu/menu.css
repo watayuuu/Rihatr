@@ -1,18 +1,17 @@
 
 .main_menu{
-  width: 90%;
+  width: 90%;  /*side.CSSの.listings のwidthと連動*/
   float: right;
   background-color: aliceblue;
+  height:100%;
 }
 /* 自主トレ設定画面 */
 .create-menu{
   float: right;
-  width: 15%;
+  width: 20%;
   background-color:white;
-  height: 100vh;
-  
-  /* position:fixed;
-  right: 0;  */
+  /* height:100vh; */
+
 
 }
 .menu_form{
@@ -65,65 +64,52 @@
   /* display: flex;
   justify-content: center;
   flex-wrap: wrap; */
-  
-
+  overflow: scroll;
+  height:100vh;
 }
 
 .number_frequency{
-  border: solid white;
+  border: solid pink;
   margin: 5px;
-  position: relative; 
+  /* display: flex; */
  
 }
 .not_editer{
-  display: flex;
+  display: none;
+  /* display: flex; */
   justify-content: center;
-  position: absolute; 
   left: 0;
   right: 0;
   top:25px;
-  margin: auto;
-  z-index: 1;
-  display: none;
 }
-.menu-editor{
-  margin:0 20px ;
-  border: 1px dotted #7f4600;
-  background-color:white;
-  width:10vw;
-  min-width: 100px;
-  height: 10vw;
-  min-height:100px;
-  /* width:250px;
-  height:250px; */
-  display: flex;
 
+.menu-editor{
+  border          : 1px dotted #7f4600;
+  background-color:white;
+  width           :13vw;
+  min-width       : 150px;
+  height          : 13vw;
+  min-height      :150px;
+  display         : flex;
 }
 
 .menu_number , .menu_frequency{
   display:inline-block;
   background-color: #3399FF;
   color: white;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+
+.number_select,.frequency_select{
+  display:inline-block;
   padding: 5px;
   height: 50px;
   width: 50px;
   font-size: 20px;
 }
 
-.number_select{
-  display:inline-block;
-  padding: 5px;
-  height: 50px;
-  width: 50px;
-  font-size: 20px;
-}
-.frequency_select{
-  display:inline-block;
-  padding: 5px;
-  height: 50px;
-  width: 50px;
-  font-size: 20px;
-}
 
 
 
@@ -180,10 +166,10 @@
 
 /* 画像サイズ */
 .training_img{
-  width:10vw;
-  min-width: 100px;
-  height: 10vw;
-  min-height:100px;
+  width:13vw;
+  min-width: 150px;
+  height: 13vw;
+  min-height:150px;
   /* width:250px;
   height:250px; */
 }

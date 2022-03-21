@@ -14,7 +14,7 @@
         <%# フィルター %>
         <div class = "show_filter_form">
           <div class="show_joint_filter">フィルター</div>
-            <ul>上肢
+            <ul class="show_filter">上肢
               <li><%= check_box_tag :invalid_flag, value = "", @training.shoulder ,disabled:"disabled"%>肩関節</li>
               <li><%= check_box_tag :invalid_flag, value = "", @training.elbow ,disabled:"disabled"%>肘関節</li>
               <li><%= check_box_tag :invalid_flag, value = "", @training.hand_fingers ,disabled:"disabled"%>手関節・手指</li>

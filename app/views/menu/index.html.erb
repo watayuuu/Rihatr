@@ -19,50 +19,50 @@
 
 
     <div class="menu-edit" >
-    <div class="number_frequency">
-      <div class ="not_editer">
-          <div class="menu_number">回数</div>
-          <%=f.text_field :number ,class:"number_select",value:"10",type:"number",min:"1"%>
-          <div class="number_times">回</div>
-          <div class="menu_frequency">頻度</div>
-          <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-          <div class="set_count">セット</div>
+      <div class="number_frequency">
+        <div class ="not_editer">
+            <div class="menu_number">回数</div>
+            <%=f.text_field :number ,class:"number_select",value:"10",type:"number",min:"1"%>
+            <div class="number_times">回</div>
+            <div class="menu_frequency">頻度</div>
+            <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
+            <div class="set_count">セット</div>
+        </div>
+        <div class= "menu-editor"></div>
       </div>
-      <div class= "menu-editor"></div>
-    </div>
-        <div class="number_frequency">
-      <div class ="not_editer">
-          <div class="menu_number">回数</div>
-          <%=f.text_field :number1 ,class:"number_select",value:"10",type:"number",min:"1"%>
-          <div class="number_times">回</div>
-          <div class="menu_frequency">頻度</div>
-          <%= f.text_field  :frequency_select1, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-          <div class="set_count">セット</div>
+          <div class="number_frequency">
+        <div class ="not_editer">
+            <div class="menu_number">回数</div>
+            <%=f.text_field :number1 ,class:"number_select",value:"10",type:"number",min:"1"%>
+            <div class="number_times">回</div>
+            <div class="menu_frequency">頻度</div>
+            <%= f.text_field  :frequency_select1, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
+            <div class="set_count">セット</div>
+        </div>
+        <div class= "menu-editor"></div>
       </div>
-      <div class= "menu-editor"></div>
-    </div>
-        <div class="number_frequency">
-      <div class ="not_editer">
-          <div class="menu_number">回数</div>
-          <%=f.text_field :number2 ,class:"number_select",value:"10",type:"number",min:"1"%>
-          <div class="number_times">回</div>
-          <div class="menu_frequency">頻度</div>
-          <%= f.text_field  :frequency_select2, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-          <div class="set_count">セット</div>
+          <div class="number_frequency">
+        <div class ="not_editer">
+            <div class="menu_number">回数</div>
+            <%=f.text_field :number2 ,class:"number_select",value:"10",type:"number",min:"1"%>
+            <div class="number_times">回</div>
+            <div class="menu_frequency">頻度</div>
+            <%= f.text_field  :frequency_select2, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
+            <div class="set_count">セット</div>
+        </div>
+        <div class= "menu-editor"></div>
       </div>
-      <div class= "menu-editor"></div>
-    </div>
-        <div class="number_frequency">
-      <div class ="not_editer">
-          <div class="menu_number">回数</div>
-          <%=f.text_field :number3 ,class:"number_select",value:"10",type:"number",min:"1"%>
-          <div class="number_times">回</div>
-          <div class="menu_frequency">頻度</div>
-          <%= f.text_field  :frequency_select3, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-          <div class="set_count">セット</div>
+      <div class="number_frequency">
+        <div class ="not_editer">
+            <div class="menu_number">回数</div>
+            <%=f.text_field :number3 ,class:"number_select",value:"10",type:"number",min:"1"%>
+            <div class="number_times">回</div>
+            <div class="menu_frequency">頻度</div>
+            <%= f.text_field  :frequency_select3, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
+            <div class="set_count">セット</div>
+        </div>
+        <div class= "menu-editor"></div>
       </div>
-      <div class= "menu-editor"></div>
-    </div>
     </div>
     
     <% end %>
@@ -89,8 +89,9 @@
               <%= check_box_tag :invalid_flag, value = "stretch", training.stretch ,disabled:"disabled",class:"invalid_flag",type:"hidden"%>
               <%= check_box_tag :invalid_flag, value = "muscle_training", training.muscle_training ,disabled:"disabled",class:"invalid_flag",type:"hidden"%>
               <%= check_box_tag :invalid_flag, value = "stability", training.stability ,disabled:"disabled",class:"invalid_flag",type:"hidden"%>
-              <button type="button" class="addbutton" >追加する</button>
             </div> 
+            <button type="button" class="addbutton" >追加する</button>
+
         </div>
       <% end %>
     </div>

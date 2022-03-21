@@ -1,7 +1,7 @@
 
 <div class="show_individual">
       <div class ="training-menu-edit">
-        <%= button_to "削除",  menu_path,method: :delete ,class:"menu-delete",data: { confirm: '削除しますか？' }%>
+        <%= button_to "データ削除",  menu_path,method: :delete ,class:"menu-delete",data: { confirm: 'データが完全に消えます。削除しますか？' }%>
       </div>
   <%# <h2>トレーニング詳細画面</h2> %>
   <div class="show_training-information">
@@ -16,7 +16,7 @@
         <%# フィルター %>
         <div class = "show_filter_form">
           <div class="show_joint_filter">フィルター</div>
-            <ul>上肢
+            <ul >上肢
               <li><%= check_box_tag :invalid_flag, value = "", @training.shoulder ,disabled:"disabled"%>肩関節</li>
               <li><%= check_box_tag :invalid_flag, value = "", @training.elbow ,disabled:"disabled"%>肘関節</li>
               <li><%= check_box_tag :invalid_flag, value = "", @training.hand_fingers ,disabled:"disabled"%>手関節・手指</li>
