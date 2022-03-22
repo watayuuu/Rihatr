@@ -90,9 +90,15 @@ class MenuController < ApplicationController
 
     
 
-    @filter = Training.where(sholder). or Training.where(elbow). or Training.where(hand_fingers). or Training.where(hip). or Training.where(knee). or Training.where(ankle). or Training.where(front_trank). or Training.where(back_trank). or Training.where(composite).or Training.where(supine).or Training.where(prone).or Training.where(lateral).or Training.where(sitting).or Training.where(standing).or Training.where(fours).or Training.where(stretch).or Training.where(muscle_training).or Training.where(stability).or Training.where(mascle_name)
-
-
+    # @filter = Training.where(sholder). or Training.where(elbow). or Training.where(hand_fingers). or Training.where(hip). or Training.where(knee). or Training.where(ankle). or Training.where(front_trank). or Training.where(back_trank). or Training.where(composite).or Training.where(supine).or Training.where(prone).or Training.where(lateral).or Training.where(sitting).or Training.where(standing).or Training.where(fours).or Training.where(stretch).or Training.where(muscle_training).or Training.where(stability).or Training.where(mascle_name)
+        filter = (Training.where(sholder). or Training.where(elbow). or Training.where(hand_fingers). or Training.where(hip). or Training.where(knee). or Training.where(ankle). or Training.where(front_trank). or Training.where(back_trank). or Training.where(composite).or Training.where(supine).or Training.where(prone).or Training.where(lateral).or Training.where(sitting).or Training.where(standing).or Training.where(fours).or Training.where(stretch).or Training.where(muscle_training).or Training.where(stability))
+    if params[:mascleSearch] == "" then
+      @filter = Training.where(sholder). or Training.where(elbow). or Training.where(hand_fingers). or Training.where(hip). or Training.where(knee). or Training.where(ankle). or Training.where(front_trank). or Training.where(back_trank). or Training.where(composite).or Training.where(supine).or Training.where(prone).or Training.where(lateral).or Training.where(sitting).or Training.where(standing).or Training.where(fours).or Training.where(stretch).or Training.where(muscle_training).or Training.where(stability).or Training.where(mascle_name)
+    elsif params[:mascleSearch].present? then
+      @filter= Training.where(mascle_name)
+    else 
+      @filter = filter.where(mascle_name)
+    end
     respond_to do |format|
       format.html { redirect_to :root }
       format.json {}

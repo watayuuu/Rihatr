@@ -3,7 +3,6 @@
   width: 90%;  /*side.CSSの.listings のwidthと連動*/
   float: right;
   background-color: aliceblue;
-  height:100%;
 }
 /* 自主トレ設定画面 */
 .create-menu{
@@ -64,40 +63,36 @@
   /* display: flex;
   justify-content: center;
   flex-wrap: wrap; */
-  overflow: scroll;
+  /* overflow: scroll; */
   height:100vh;
 }
 
 .number_frequency{
-  border: solid pink;
-  margin: 5px;
-  /* display: flex; */
- 
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 .not_editer{
   display: none;
-  /* display: flex; */
-  justify-content: center;
-  left: 0;
-  right: 0;
-  top:25px;
+
 }
 
 .menu-editor{
   border          : 1px dotted #7f4600;
   background-color:white;
-  width           :13vw;
+  width           :10vw;
   min-width       : 150px;
-  height          : 13vw;
+  height          : 10vw;
   min-height      :150px;
-  display         : flex;
+  float: left;
+  display: flex;
 }
 
 .menu_number , .menu_frequency{
   display:inline-block;
   background-color: #3399FF;
   color: white;
-  height: 50px;
+  height: 30px;
   width: 50px;
   font-size: 20px;
 }
@@ -105,7 +100,7 @@
 .number_select,.frequency_select{
   display:inline-block;
   padding: 5px;
-  height: 50px;
+  height: 30px;
   width: 50px;
   font-size: 20px;
 }
@@ -133,6 +128,8 @@
 .training-all{
   float: left;
   width: 80%;
+  height:100vh;
+
 }
 
 
@@ -166,9 +163,9 @@
 
 /* 画像サイズ */
 .training_img{
-  width:13vw;
+  width:10vw;
   min-width: 150px;
-  height: 13vw;
+  height: 10vw;
   min-height:150px;
   /* width:250px;
   height:250px; */

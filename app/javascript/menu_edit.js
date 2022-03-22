@@ -43,7 +43,10 @@ function preview(){
 						let cloneTitle= $(this).parents(".training_list").children()[0]
 						let cloneImg=$(editor[i]).children()[0]
 						let trainingInformation =$(this).prev()
-						$(trainingImage).clone(true).appendTo(editor[i]);
+						let cloneImage = $(trainingImage).clone(true).appendTo(editor[i]);
+					
+					
+						cloneImage;
 						$(cloneTitle).clone(true).appendTo(cloneImg);
 						$(trainingInformation).clone(true).appendTo(editor[i]);
 						$(editor[i]).append(`<button type="button" class="deleteButton" >削除</button>
@@ -74,7 +77,7 @@ function preview(){
 							numberTimesText.text("回")
 							numberSelectVal.val(10)
 						};
-						notEditer.css("display", "flex")
+						// notEditer.css("display", "flex")
 						notEditer.show()
 						// 削除ボタンを押したとき画像を削除する
 						$(".deleteButton").on("click",function(){
