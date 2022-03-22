@@ -28,8 +28,12 @@ Things you may want to cover:
 ## usersテーブル
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
-| name               | string | null: false               |
-| encrypted_password | string | null: false               |
+| nickname           | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| occupation         | string | null: false               |
 
 
 ## trainingテーブル

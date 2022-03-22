@@ -1,8 +1,10 @@
 
 <div class="show_individual">
+       <% if user_signed_in? && current_user.id == 1 %>
       <div class ="training-menu-edit">
         <%= button_to "データ削除",  menu_path,method: :delete ,class:"menu-delete",data: { confirm: 'データが完全に消えます。削除しますか？' }%>
       </div>
+      <%end%>
   <%# <h2>トレーニング詳細画面</h2> %>
   <div class="show_training-information">
       <div class="show_mascle-information">

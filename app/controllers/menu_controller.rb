@@ -1,5 +1,5 @@
 class MenuController < ApplicationController
-
+  before_action :move_to_index, except: [:index, :show]
   def index
     @training =Training.all
     @counts =Training.count
@@ -115,6 +115,11 @@ class MenuController < ApplicationController
     params.permit(:number,:frequency_select,:number1,:frequency_select1,:number2,:frequency_select2,:number3,:frequency_select3,:menu_number)
   end
 
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
 end
 
 
