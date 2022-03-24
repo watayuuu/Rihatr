@@ -83,10 +83,14 @@ function preview(){
 						$(".deleteButton").on("click",function(){
 							let cloneImg=  $(this).prevAll();
 							let deleteEditer = $(this).parent().prev();
-							// let deleteEditer =$(this).prev()
 							$(cloneImg).remove();
 							$(this).remove();
 							deleteEditer.hide()
+						});
+
+						$(".olldelete").on("click",function(){
+							$(".menu-editor").children().remove()
+							$(".not_editer").hide()
 						});
 						break;
 					}

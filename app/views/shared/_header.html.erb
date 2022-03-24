@@ -7,8 +7,8 @@
          <li class="menu"><%= link_to "クイック処方", menu_index_path %></li>
 
          <% if user_signed_in? %>
-               <li class="menu"><%= link_to "パッケージ処方", "#"%></li>
-               <li class="menu"><%= link_to "パッケージ登録", "#"%></li>
+               <li class="menu"><%= link_to "パッケージ処方", packageall_package_index_path%></li>
+               <li class="menu"><%= link_to "パッケージ登録", package_index_path%></li>
                   <li class="menu"><%= link_to "#{current_user.nickname}さん", "#", class: "user-nickname" %></li>
                   <li class="menu"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout",data: { confirm: 'ログアウトしますか？' } %></li> 
             <% else  %>

@@ -1,72 +1,38 @@
-
 <%# ヘッダー %>
 <%= render "shared/header" %>
 <%# サイドバー %>
 <%= render "menu/side" %>
-<div class="main_menu">
+<div class="packge_main_menu">
 <%# 自主トレフォーム %>
   <div class="create-menu">
-    <%= form_with url: preview_menu_index_path,method: :post,local: true do |f| %>
+    <%= form_with modal:@packge,local: true do |f| %>
     <div class ="form">
-      <%= f.submit(class:"menu_btn",value:"作成")%>
-    <div class ="menu_form"><%=f.text_field :name , class:"name_form",placeholder:"利用者名を入力",autocomplete: 'off'%></div>
+      <%= f.submit(class:"menu_btn",value:"パッケージ登録")%>
+    <div class ="menu_form"><%=f.text_field :package_title , class:"name_form",placeholder:"パッケージタイトルを入力",autocomplete: 'off'%></div>
      <button type="button" class="olldelete" >全削除</button>
-      <%=f.hidden_field :tid,  id:"tid"%>
-      <%=f.hidden_field :tid1, id:"tid1"%>
-      <%=f.hidden_field :tid2, id:"tid2"%>
-      <%=f.hidden_field :tid3, id:"tid3"%>
-    
+      <%=f.number_field :package_id,  id:"tid"%>
+      <%=f.number_field :package1_id, id:"tid1"%>
+      <%=f.number_field :package2_id, id:"tid2"%>
+      <%=f.number_field :package3_id, id:"tid3"%>
+    <% end %>
     </div>
 
 
     <div class="menu-edit" >
       <div class="number_frequency">
-        <div class ="not_editer">
-            <div class="menu_number">回数</div>
-            <%=f.text_field :number ,class:"number_select",value:"10",type:"number",min:"1"%>
-            <div class="number_times">回</div>
-            <div class="menu_frequency">頻度</div>
-            <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-            <div class="set_count">セット</div>
-        </div>
         <div class= "menu-editor"></div>
       </div>
           <div class="number_frequency">
-        <div class ="not_editer">
-            <div class="menu_number">回数</div>
-            <%=f.text_field :number1 ,class:"number_select",value:"10",type:"number",min:"1"%>
-            <div class="number_times">回</div>
-            <div class="menu_frequency">頻度</div>
-            <%= f.text_field  :frequency_select1, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-            <div class="set_count">セット</div>
-        </div>
         <div class= "menu-editor"></div>
       </div>
           <div class="number_frequency">
-        <div class ="not_editer">
-            <div class="menu_number">回数</div>
-            <%=f.text_field :number2 ,class:"number_select",value:"10",type:"number",min:"1"%>
-            <div class="number_times">回</div>
-            <div class="menu_frequency">頻度</div>
-            <%= f.text_field  :frequency_select2, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-            <div class="set_count">セット</div>
-        </div>
         <div class= "menu-editor"></div>
       </div>
       <div class="number_frequency">
-        <div class ="not_editer">
-            <div class="menu_number">回数</div>
-            <%=f.text_field :number3 ,class:"number_select",value:"10",type:"number",min:"1"%>
-            <div class="number_times">回</div>
-            <div class="menu_frequency">頻度</div>
-            <%= f.text_field  :frequency_select3, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-            <div class="set_count">セット</div>
-        </div>
         <div class= "menu-editor"></div>
       </div>
     </div>
     
-    <% end %>
   </div >
 
   <%# 自主トレ一覧 %>

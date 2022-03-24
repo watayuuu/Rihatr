@@ -35,8 +35,36 @@ Things you may want to cover:
 | first_name_kana    | string | null: false               |
 | occupation         | string | null: false               |
 
+### Association
+- has_many :trainings
+- has_many :user_packages
 
-## trainingテーブル
+
+
+
+## packagesテーブル
+| Column                | Type       | Options                        |
+| --------------------- | ---------  | ------------------------------ |
+| package_title         | string     | null: false                    |
+| training_id           | references | null: false, foreign_key: true |
+| training_id1          | references | foreign_key: true              |
+| training_id2          | references | foreign_key: true              |
+| training_id3          | references | foreign_key: true              |
+| user                  | references | null: false, foreign_key: true |
+
+
+## user_packagesテーブル
+| Column                | Type       | Options                        |
+| --------------------- | ---------  | ------------------------------ |
+| user                  | references | null: false, foreign_key: true |
+| training              | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
+
+## trainingsテーブル
 | Column                | Type    | Options                   |
 | --------------------- | ------  | ------------------------- |
 | training_title        | string  | null: false               |

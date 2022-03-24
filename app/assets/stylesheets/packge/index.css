@@ -1,0 +1,6 @@
+
+.packge_main_menu{
+  width: 90%;  /*side.CSSの.listings のwidthと連動*/
+  float: right;
+  background-color: #FFDBC9;
+}

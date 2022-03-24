@@ -10,6 +10,11 @@ Rails.application.routes.draw do
       get  'filter'
     end
   end
+  resources :package, only: [:index,:new,:create] do
+    collection do
+      get 'packageall'
+    end
+  end
 
 
 end

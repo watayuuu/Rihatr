@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_063021) do
+ActiveRecord::Schema.define(version: 2022_03_23_001630) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,22 @@ ActiveRecord::Schema.define(version: 2022_03_22_063021) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "packages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "package_title", null: false
+    t.bigint "package_id", null: false
+    t.bigint "package1_id"
+    t.bigint "package2_id"
+    t.bigint "package3_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["package1_id"], name: "index_packages_on_package1_id"
+    t.index ["package2_id"], name: "index_packages_on_package2_id"
+    t.index ["package3_id"], name: "index_packages_on_package3_id"
+    t.index ["package_id"], name: "index_packages_on_package_id"
+    t.index ["user_id"], name: "index_packages_on_user_id"
   end
 
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,4 +98,9 @@ ActiveRecord::Schema.define(version: 2022_03_22_063021) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "packages", "trainings", column: "package1_id"
+  add_foreign_key "packages", "trainings", column: "package2_id"
+  add_foreign_key "packages", "trainings", column: "package3_id"
+  add_foreign_key "packages", "trainings", column: "package_id"
+  add_foreign_key "packages", "users"
 end

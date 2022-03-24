@@ -1,0 +1,26 @@
+<%# ヘッダー %>
+<%= render "shared/header" %>
+
+<div class="listings">
+</div>
+
+<div class="packge_main_menu">
+  <%# 自主トレフォーム %>
+  <div class="create-menu">
+  
+    
+  </div >
+
+  <%# 自主トレ一覧 %>
+  <div class="training-all">
+    <div class ="count_index">
+      <div class ="display_list"><%= @counts%></div>
+      <div class ="display_counts"><%= "件表示/#{@counts}件中"%></div>
+    </div>
+    <div class="training">
+      <% @packageall.each do |package| %>
+      
+      <%end%>
+    </div>
+  </div>
+</div>
