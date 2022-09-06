@@ -5,7 +5,8 @@
 <div class="packge_main_menu">
 <%# 自主トレフォーム %>
   <div class="create-menu">
-    <%= form_with modal:@packge,local: true do |f| %>
+    <%= form_with url: package_index_path ,local: true do |f| %>
+        <%# <%= form_with modal:@package,local: true do |f| %> %>
     <div class ="form">
       <%= f.submit(class:"menu_btn",value:"パッケージ登録")%>
     <div class ="menu_form"><%=f.text_field :package_title , class:"name_form",placeholder:"パッケージタイトルを入力",autocomplete: 'off'%></div>
@@ -13,26 +14,18 @@
       <%=f.number_field :package_id,  id:"tid"%>
       <%=f.number_field :package1_id, id:"tid1"%>
       <%=f.number_field :package2_id, id:"tid2"%>
-      <%=f.number_field :package3_id, id:"tid3"%>
+      <%=f.number_field :package3_id, id:"tid3" %>
     <% end %>
     </div>
 
 
     <div class="menu-edit" >
-      <div class="number_frequency">
-        <div class= "menu-editor"></div>
-      </div>
-          <div class="number_frequency">
-        <div class= "menu-editor"></div>
-      </div>
-          <div class="number_frequency">
-        <div class= "menu-editor"></div>
-      </div>
-      <div class="number_frequency">
-        <div class= "menu-editor"></div>
-      </div>
+      <% 4.times do %>
+        <div class="number_frequency">
+          <div class= "menu-editor"></div>
+        </div>
+      <% end%>
     </div>
-    
   </div >
 
   <%# 自主トレ一覧 %>

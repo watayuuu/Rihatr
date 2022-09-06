@@ -11,16 +11,24 @@
     
   </div >
 
-  <%# 自主トレ一覧 %>
+  <%# パッケージ一覧 %>
   <div class="training-all">
     <div class ="count_index">
       <div class ="display_list"><%= @counts%></div>
       <div class ="display_counts"><%= "件表示/#{@counts}件中"%></div>
     </div>
-    <div class="training">
+    <div class="package">
       <% @packageall.each do |package| %>
-      
+        <%="タイトル:#{package.package_title}"%>
+        <%="作成者:#{package.user.nickname}"%>
       <%end%>
     </div>
   </div>
-</div>
+
+
+  <%# 詳細ページのモーダル %>
+  <div id="mask" class="hidden"></div>
+  <div id="modal" class="hidden">
+    <p>モーダルウィンドウ<p>
+  </div>
+</div

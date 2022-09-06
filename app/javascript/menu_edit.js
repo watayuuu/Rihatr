@@ -31,7 +31,9 @@ function preview(){
 
 	// 自主トレの追加機能
 	function editAdd(){
-		$(".addbutton").on("click",function (){  
+		$(".addbutton").on("click",function (event){  
+			// event.stopPropagation();
+			// event.stopImmediatePropagation();
 			// training_imgを取得
 			let trainingImage=  $(this).parents(".training_list").children("a").children()[0];
 			// data-tidを取得
@@ -49,8 +51,7 @@ function preview(){
 						cloneImage;
 						$(cloneTitle).clone(true).appendTo(cloneImg);
 						$(trainingInformation).clone(true).appendTo(editor[i]);
-						$(editor[i]).append(`<button type="button" class="deleteButton" >削除</button>
-						`)
+						$(editor[i]).append(`<button type="button" class="deleteButton" >➖</button>`)
 
 						// 処方頻度メニューを表示
 						let notEditer =	$(editor[i]).prev();
@@ -219,20 +220,21 @@ function preview(){
 					
 
 						`<div class = "training_list">
-            <div class="training_title">
-						${training.training_title}
-            </div>
             <a data-remote="true" href="/menu/${training.id}">
             <div class = "training_image" draggable="true" >
               <img data-tid="${training.id}" class="training_img" src="${training.image}">
+							<button name="button" type="submit" class="addbutton">➕</button>
+
             </div>
 						</a>
 						<div class ="training_information">
               <input type="hidden" name="invalid_flag" id="invalid_flag" value="stretch" disabled="disabled" class="invalid_flag" ${stretch} />
               <input type="hidden" name="invalid_flag" id="invalid_flag" value="muscle_training" disabled="disabled" class="invalid_flag" ${muscleTraining}/>
               <input type="hidden" name="invalid_flag" id="invalid_flag" value="stability" disabled="disabled" class="invalid_flag"${stability} />
-              <button name="button" type="submit" class="addbutton">追加する</button>
             </div> 
+						<div class="training_title">
+							${training.training_title}
+            </div>
         </div>`
 
 

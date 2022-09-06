@@ -5,20 +5,18 @@
    <nav class="nav">
       <ul class="lists-right">
          <li class="menu"><%= link_to "クイック処方", menu_index_path %></li>
-
          <% if user_signed_in? %>
                <li class="menu"><%= link_to "パッケージ処方", packageall_package_index_path%></li>
                <li class="menu"><%= link_to "パッケージ登録", package_index_path%></li>
                   <li class="menu"><%= link_to "#{current_user.nickname}さん", "#", class: "user-nickname" %></li>
                   <li class="menu"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout",data: { confirm: 'ログアウトしますか？' } %></li> 
             <% else  %>
+               <li class="menu"><%= link_to 'ユーザー登録（無料）', new_user_session_path%></li>
                <li class="menu"><%= link_to 'ログイン',new_user_registration_path %></li>
-               <li class="menu"><%= link_to '新規登録', new_user_session_path%></li>
-          <% end %>
-             <% if user_signed_in? && current_user.id == 1 %>
-             <li class="menu"><%= link_to "メニュー登録", new_menu_path%></li>
-          <% end %>
-
+         <% end %>
+         <% if user_signed_in? && current_user.id == 1 %>
+         <li class="menu"><%= link_to "メニュー登録", new_menu_path%></li>
+         <% end %>
       </ul>
    </nav>
 </header>

@@ -36,8 +36,7 @@ Things you may want to cover:
 | occupation         | string | null: false               |
 
 ### Association
-- has_many :trainings
-- has_many :user_packages
+- has_many :packages
 
 
 
@@ -53,16 +52,15 @@ Things you may want to cover:
 | user                  | references | null: false, foreign_key: true |
 
 
-## user_packagesテーブル
+## training_packagesテーブル
 | Column                | Type       | Options                        |
 | --------------------- | ---------  | ------------------------------ |
-| user                  | references | null: false, foreign_key: true |
+| package               | references | null: false, foreign_key: true |
 | training              | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :item
-- belongs_to :user
+
 
 ## trainingsテーブル
 | Column                | Type    | Options                   |

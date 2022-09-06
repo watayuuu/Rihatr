@@ -11,7 +11,9 @@ class PackageController < ApplicationController
   end
 
   def create
+    binding.pry
     @package = Package.new(package_params)
+    # binding.pry
     if @package.save
       redirect_to  packageall_package_index_path
     else
@@ -21,15 +23,18 @@ class PackageController < ApplicationController
 
   def packageall
     @packageall = Package.all
+    # @packageall = Package.all.includes(:trainings)
+    # binding.pry
     @counts =Package.count
   end
 
-
   private
-  def package_params
-    params.permit(:package_title,:package_id,:package1_id,:package2_id,:package3_id).merge(user_id: current_user.id)
+  # def package_params
+  #   params.permit(:package_title,:package_id,:package1_id,:package2_id,:package3_id).merge(user_id: current_user.id)
+  # end
 
-    # params.permit(:package_title).merge(user_id: current_user.id,package_id:training.id,package1_id: training.id,package2_id:training.id,package3_id:training.id)
+  def package_params
+    params.permit(:package_title,:package_id).merge(user_id: current_user.id)
   end
 
   def move_to_index

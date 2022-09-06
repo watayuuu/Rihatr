@@ -86,6 +86,7 @@
   min-height      :150px;
   float: left;
   display: flex;
+  position: relative;/*相対配置*/
 }
 
 .menu_number , .menu_frequency{
@@ -141,21 +142,23 @@
 }
 .training_list{ 
   padding: 0.5em 1em;
-  margin: 2em 0;
-  background-color: #fff;  
-  border: solid 3px #6091d3;/*線*/
-  border-radius: 10px;/*角の丸み*/
+  /* margin: 2em 0; */
+  /* background-color: #fff;   */
+  /* border: solid 3px #6091d3;
+  border-radius: 10px; */
   margin:10px;
   color: #000;
 }
 
-
+.training_list:hover{
+  top:-3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
 
 
 
 .training_title{
-  position: absolute;
-  /* width: 100%; */
+
 }
 
 
@@ -176,6 +179,8 @@
 .training_image{
   overflow: hidden;
   cursor: pointer;
+  position: relative;/*相対配置*/
+
 }
 .training_image .training_img{
   width: 100%;
@@ -202,40 +207,44 @@
 }
 
 
-
-.register{
-  height: 20px;
-  width:20px;
-  margin:0;
-  padding: 0;
-}
-
-.garbage_can{
-  height: 30px;
-  width:30px;
-  margin:0;
-}
-
-
-
-
-.addbutton{
+.addbutton,.deleteButton{
   display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
+  border-radius : 50%;          /* 角丸       */
   font-size     :15px;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
-  padding       : 10px 10px;       
+  padding       : 5px;       
   background    : #3399FF;     /* 背景色     */
   color         : #ffffff;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
   border        : 2px solid #3399FF;    /* 枠の指定 */
-  width:100%;
+
 }
 
 .addbutton:hover {
-  color         : #000066;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
+  /* color         : #000066;    
+  background    : #ffffff;      */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+
+}
+
+.addbutton{
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 0;
+  right: 0;
+  z-index: 10;
+
+}
+
+.deleteButton{
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 0;
+  right: 0;
+}
+
+.training_info{
 
 }

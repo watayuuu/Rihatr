@@ -5,7 +5,9 @@ class Training < ApplicationRecord
   has_one_attached :image2
   has_one_attached :image3
   has_one_attached :image4
+  has_many :packages,through: :training_packages
 
+  
   validates :training_title, :mascle_name, :explanation, :step1_comment, :step2_comment, :step3_comment, :step4_comment,presence: true
   validates :joint_filter, :position_filter, :training_filter, presence: true
 
