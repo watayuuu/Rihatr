@@ -4,29 +4,28 @@
   float: right;
   background-color: aliceblue;
 }
-/* 自主トレ設定画面 */
+/* 自主トレフォーム------------------------------------------- */
 .create-menu{
   float: right;
   width: 20%;
   background-color:white;
   /* height:100vh; */
-
-
 }
+
+.olldelete{
+  background-color:red;
+  color: white;
+  font-weight: bold;
+}
+
 .menu_form{
   /* padding:20px;
   font-size:25px; */
 
 }
 
-.form{
-
-  /* display:flex; */
-
-}
 .name_form{
-  width: 90%;
-  height:50px;
+
   padding:20px;
   margin: 10px;
   text-align    : center; 
@@ -50,7 +49,6 @@
   width: 90%;
   height:50px;
   margin: 10px;
-
 }
 .menu_btn:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
@@ -65,28 +63,28 @@
   flex-wrap: wrap; */
   /* overflow: scroll; */
   height:100vh;
+  
 }
 
 .number_frequency{
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  
 }
 .not_editer{
-  display: none;
+  /* display: none; */
 
 }
 
 .menu-editor{
   border          : 1px dotted #7f4600;
   background-color:white;
-  width           :10vw;
+  width           :5vw;
   min-width       : 150px;
-  height          : 10vw;
+  height          : 5vw;
   min-height      :150px;
   float: left;
-  display: flex;
-  position: relative;/*相対配置*/
 }
 
 .menu_number , .menu_frequency{
@@ -127,8 +125,8 @@
 }
 /* 自主トレ一覧 */
 .training-all{
-  float: left;
-  width: 80%;
+  /* float: left;
+  width: 80%; */
   height:100vh;
 
 }
@@ -148,6 +146,8 @@
   border-radius: 10px; */
   margin:10px;
   color: #000;
+  position: relative;/*相対配置*/
+
 }
 
 .training_list:hover{
@@ -158,7 +158,7 @@
 
 
 .training_title{
-
+  font-weight: 800;
 }
 
 
@@ -172,14 +172,14 @@
   min-height:150px;
   /* width:250px;
   height:250px; */
+  cursor: zoom-in;
+
 }
 
 
 
 .training_image{
   overflow: hidden;
-  cursor: pointer;
-  position: relative;/*相対配置*/
 
 }
 .training_image .training_img{
@@ -207,43 +207,65 @@
 }
 
 
-.addbutton,.deleteButton{
+.addbutton{
   display       : inline-block;
   border-radius : 50%;          /* 角丸       */
   font-size     :15px;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
   padding       : 5px;       
   background    : #3399FF;     /* 背景色     */
   color         : #ffffff;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  border        : 2px solid #3399FF;    /* 枠の指定 */
-
+  border        : 1px solid #ffffff;    /* 枠の指定 */
+  position: absolute;/*絶対配置*/
+  top: 0;
+  right: 0;
+  z-index: 10;
+  cursor: copy;
 }
 
 .addbutton:hover {
-  /* color         : #000066;    
-  background    : #ffffff;      */
+  color         : #000066;    
+  background    : #ffffff;     
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 
 }
 
-.addbutton{
+
+
+.deleteButton{
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     :15px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  padding       : 5px;       
+  background    : red;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid red;    
   position: absolute;/*絶対配置*/
   color: white;/*文字は白に*/
   top: 0;
   right: 0;
   z-index: 10;
-
+  cursor: crosshair;
 }
 
-.deleteButton{
+.closebutton{
+  display       : inline-block;
+  font-size     :15px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  padding       : 5px;       
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 1px solid #ffffff;    /* 枠の指定 */
   position: absolute;/*絶対配置*/
-  color: white;/*文字は白に*/
   top: 0;
   right: 0;
 }
+
 
 .training_info{
 

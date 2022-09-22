@@ -111,3 +111,109 @@
   height: 120px;
 }
 
+
+
+/* スライドメニューデザイン */
+#menu {
+  position: fixed;
+  height: 90%;                         /* メニューの縦範囲 */
+  width: 350px;                         /* メニューの横範囲 */
+  max-width: 350px;                     /* メニューの横上限 */
+  background-color: #808080;            /* メニューの背景色 */
+  top: 70px;                            /* メニューの表示位置縦 */
+ right: 0;                              /*  メニューの表示位置横   */
+  z-index: 1000;                          /* メニューの重なり位置 */
+  overflow: scroll;
+}
+
+#menu li {
+  padding: 12px;                        /* 余白 */
+  color: #EEEEEE;                       /* 文字色 */
+  border-bottom: 1px solid #EEEEEE;     /* 区切線 */
+  list-style-type: none;                /* リストデザイン無 */
+}
+
+/*====== 右に消えるアニメ ======*/
+#menu.SlideOut {
+  animation: SlideOut 0.5s forwards;
+}
+@keyframes SlideOut{
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(350px);
+  }
+}
+
+/*====== 左に現れるアニメ ======*/
+#menu.SlideIN {
+  animation: SlideIN 0.5s forwards;
+}
+@keyframes SlideIN{
+  from {
+    transform: translateX(350px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+/* ハンバーガーボタン */
+.openbtn {
+  position: fixed;            /* 固定表示 */
+  background:black;         /* 背景色 */
+  cursor: pointer;            /* マウスカーソル指 */
+  border        : 1px solid #ffffff;    /* 枠の指定 */
+  width: 50px;                /* 高さ */
+  height:50px;                /* 横幅 */
+  border-radius: 5px;         /* 角を丸める */
+  right: 9px;                 /* 表示位置右 */
+  top: 0;                   /* 表示位置上 */
+  z-index:1001;
+}
+
+/* ハンバーガーメニューの線を定義 */
+.openbtn span{
+    display: inline-block;     /* 要素内ブロック */
+    position: absolute;        /* 絶対位置指定   */
+    height:3px;                /* 線の太さ       */
+    width: 25px;               /* 線の長さ       */
+    background: #fff;          /* 線の色         */
+    left: 12.5px;
+  }
+
+/* span (1)番目の要素に適用 */
+.openbtn span:nth-of-type(1) {
+    top:15px; 
+}
+
+/* span (2)番目の要素に適用 */
+.openbtn span:nth-of-type(2) {
+    top:23px;
+}
+
+/* span (3)番目の要素に適用 */
+.openbtn span:nth-of-type(3) {
+    top:31px;
+}
+
+.cartcount{
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     :15px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  padding       : 5px;       
+  background    : red;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 1px solid #ffffff;    /* 枠の指定 */
+  position: absolute;/*絶対配置*/
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display:none;
+}

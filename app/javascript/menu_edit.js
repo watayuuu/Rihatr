@@ -1,107 +1,127 @@
 
 function preview(){
-	const editor =document.querySelectorAll(".menu-editor");
-	let filter1;
-	let title;
-	// メニューに表示されている数を表示
-	function displayCounts (){
-		let displayList = $(".training").children(".training_list").length;
-		$('.display_list').text(displayList);
-	};
+	// スライドメニュー関数
+	const SlideMenu = () => {
+		if($('#menu').hasClass("SlideOut")){
+			// スライドメニューが非表示なら表示
+			$('#menu').removeClass('SlideOut');
+			$('#menu').addClass('SlideIN');
+		} 
+	}
 
-	// 処方画面に同じメニューが登録されないようにするためのコード
-	function isSameTid(prmTid) {
-		let img;
-		let data;
-		for (let i = 0; i < editor.length; i++){
-			img = editor[i].querySelector(".training_image");
-			if(img != null) { 
-				data =img.children[0].dataset.tid;
-				if (data==prmTid) {
-					// alert("すでに追加されています");
-					return true;
-				}
-			}
+	// ハンバーガーメニューに表示するカウント関数
+	function CartCount (){
+		const countNum = $(".menu-editor").children("a").length;
+		$(".cartcount").html(countNum);
+		if (0 == countNum ){
+			$(".cartcount").css("display","none");
+		}else if(4 == countNum){
+			SlideMenu()
+		}else {
+			$(".cartcount").show();
 		}
-		return false;
 	}
 
 
-	editAdd();
+		// メニューに表示されている数を表示
+		function displayCounts (){
+			let displayList = $(".training").children(".training_list").length;
+			$('.display_list').text(displayList);
+		};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// 自主トレの追加機能
-	function editAdd(){
-		$(".addbutton").on("click",function (event){  
-			// event.stopPropagation();
-			// event.stopImmediatePropagation();
-			// training_imgを取得
-			let trainingImage=  $(this).parents(".training_list").children("a").children()[0];
-			// data-tidを取得
-			let img;
-			if (!isSameTid(tid)) {
-				for (let i = 0; i < editor.length; i++){
-					img = editor[i].querySelector(".training_image");
-					if(!img) { 
-						let cloneTitle= $(this).parents(".training_list").children()[0]
-						let cloneImg=$(editor[i]).children()[0]
-						let trainingInformation =$(this).prev()
-						let cloneImage = $(trainingImage).clone(true).appendTo(editor[i]);
-					
-					
-						cloneImage;
-						$(cloneTitle).clone(true).appendTo(cloneImg);
-						$(trainingInformation).clone(true).appendTo(editor[i]);
-						$(editor[i]).append(`<button type="button" class="deleteButton" >➖</button>`)
+	$(".addbutton").on("click",function (event){  
+		
+		// event.stopPropagation();
+		const trainingList =  $(this).parent(".training_list")
+		const trainingImage = $(trainingList).children("a")
+		const trainingTitle = $(trainingList).children(".training_title")
+		// 運動方法フィルター情報を取得
+		const trainingInfo =$(trainingList).children(".training_info")
+		const infoList = $(trainingInfo).children("li")
+		const filterVal = $(infoList).children(".invalid_flag:checked").val();
+		const dataTid = trainingImage.children().data("tid");
 
-						// 処方頻度メニューを表示
-						let notEditer =	$(editor[i]).prev();
-					
-						
-
-
-
-
-
-						// 運動方法フィルター情報を取得
-						let filterText = $(trainingInformation).children(".invalid_flag:checked").val();
-						let menuNumberText =$(notEditer).children(".menu_number")
-						let numberTimesText =$(notEditer).children(".number_times")
-						let numberSelectVal =$(notEditer).children(".number_select")
-
-							// フィルターによって運動頻度を書き換える処理
-						if(filterText == "stretch" || filterText == "stability"){
-							menuNumberText.text("秒数")
-							numberTimesText.text("秒")
-							numberSelectVal.val(30)
-						}else {
-							menuNumberText.text("回数")
-							numberTimesText.text("回")
-							numberSelectVal.val(10)
-						};
-						// notEditer.css("display", "flex")
-						notEditer.show()
-						// 削除ボタンを押したとき画像を削除する
-						$(".deleteButton").on("click",function(){
-							let cloneImg=  $(this).prevAll();
-							let deleteEditer = $(this).parent().prev();
-							$(cloneImg).remove();
-							$(this).remove();
-							deleteEditer.hide()
-						});
-
-						$(".olldelete").on("click",function(){
-							$(".menu-editor").children().remove()
-							$(".not_editer").hide()
-						});
-						break;
-					}
-				}
+		// 画像をコピー
+		let copyImg;
+		let emptyEditor = null;
+		let editorDataTid;
+		const editor = $(".menu-editor")
+		for (let i = 0; i < editor.length; i++){
+			emptyEditor = null;
+			copyImg = editor[i].querySelector(".training_img")
+			editorDataTid =$(editor[i]).find(".training_img").data("tid");
+			if(dataTid == editorDataTid) { 
+				alert("すでに追加されています")
+				break;
 			}
+			if(copyImg == null) { 
+				emptyEditor = editor[i];
+				break;
+			}
+		}
+
+		if(emptyEditor != null) { 
+			$(trainingImage).clone(true).appendTo(emptyEditor);
+		}
+
+		// タイトルをコピーと運動処方頻度設定
+			const editorInfo = $(".editer_info")
+			for (let i = 0; i < editorInfo.length; i++){
+				const copyTitle = $(editorInfo[i]).children(".copy_training_title")
+				const menuNumberText =$(editorInfo[i]).children(".menu_number")
+				const numberTimesText =$(editorInfo[i]).children(".number_times")
+				const numberSelectVal =$(editorInfo[i]).children(".number_select")
+				$(trainingTitle).clone(true).appendTo(copyTitle);
+
+				// フィルターによって運動頻度を書き換える処理
+				if(filterVal == "stretch" || filterVal == "stability"){
+					menuNumberText.text("秒数")
+					numberTimesText.text("秒")
+					numberSelectVal.val(30)
+				}else {
+					menuNumberText.text("回数")
+					numberTimesText.text("回")
+					numberSelectVal.val(10)
+				}			
+				break;
+			};
+
+		CartCount();
+	});
+
+			// 削除ボタンを押したときの処理
+			$(".deleteButton").on("click",function(){
+				let cloneImg=  $(this).prevAll();
+				let deleteEditer = $(this).parent().prev();
+				$(cloneImg).remove();
+				$(this).remove();
+				deleteEditer.hide()
+				CartCount();
+			});
+		
+
+
+		// 全削除ボタンを押したときの処理
+		$(".olldelete").on("click",function(){
+			$(".menu-editor").children().remove()
+			$(".editer_info").hide()
+			CartCount();
 		});
-	}
-
-
-
 
 
 
@@ -236,9 +256,6 @@ function preview(){
 							${training.training_title}
             </div>
         </div>`
-
-
-
 					);
 				});
 				displayCounts();

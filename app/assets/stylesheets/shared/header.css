@@ -5,13 +5,11 @@ body {
 }
 header {
   /* padding: 30px 4% 10px; */
-  top: 0;
   width: 100%;
   background-color: #666666;
   display: flex;
   position:fixed;
-
-
+  z-index: 1000;
 }
 
 
@@ -20,6 +18,8 @@ header {
   font-size:20px;
   font-weight:40px;
   color: white;
+  text-decoration: none;
+  padding: 10px;
 
 }
 /* 選択されているメニューの色を変える */
@@ -40,7 +40,8 @@ header {
 .menu a{
 
   color: white;
-
+  text-decoration: none;
+  padding: 10px;
 }
 
 
@@ -49,10 +50,10 @@ h1 {
   margin: 0; padding: 0;
   font-size: 30px;
 }
-a {	
+/* a {	
   text-decoration: none;
   padding: 10px;
-}
+} */
 
 nav ul li{
 

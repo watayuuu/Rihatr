@@ -4,37 +4,48 @@
 <%# サイドバー %>
 <%= render "menu/side" %>
 <div class="main_menu">
-<%# 自主トレフォーム %>
-  <div class="create-menu">
-    <%= form_with url: preview_menu_index_path,method: :post,local: true do |f| %>
-    <div class ="form">
-      <%= f.submit(class:"menu_btn",value:"作成")%>
-    <div class ="menu_form"><%=f.text_field :name , class:"name_form",placeholder:"利用者名を入力",autocomplete: 'off'%></div>
-      <button type="button" class="olldelete" >全削除</button>
-      <%=f.hidden_field :tid,  id:"tid"%>
-      <%=f.hidden_field :tid1, id:"tid1"%>
-      <%=f.hidden_field :tid2, id:"tid2"%>
-      <%=f.hidden_field :tid3, id:"tid3"%>
-    </div>
-
-    <div class="menu-edit" >
-    <% i=4%>
-    <% i.times do%>
-      <div class="number_frequency">
-        <div class ="not_editer">
-          <div class="menu_number">回数</div>
-          <%=f.text_field :number ,class:"number_select",value:"10",type:"number",min:"1"%>
-          <div class="number_times">回</div>
-          <div class="menu_frequency">頻度</div>
-          <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
-          <div class="set_count">セット</div>
-        </div>
-        <div class= "menu-editor"></div>
+      <%# ハンバーガーメニュー %>
+      <div id="menu_btn" class="openbtn">
+       <div class= "cartcount"></div>
+         <span></span>
+         <span></span>
+         <span></span>
       </div>
-    <%end%>
-    </div>
+    <%# ハンバーガーメニューの中身 %>
+    <div id="menu" class="SlideOut">
+  <%# 自主トレフォーム %>
+    <%= form_with url: preview_menu_index_path,method: :post,local: true do |f| %>
+      <div class ="form">
+        <div class ="menu_form"><%=f.text_field :name , class:"name_form",placeholder:"利用者名を入力",autocomplete: 'off'%></div>
+          <button type="button" class="olldelete" >全削除</button>
+          <%=f.hidden_field :tid,  id:"tid"%>
+          <%=f.hidden_field :tid1, id:"tid1"%>
+          <%=f.hidden_field :tid2, id:"tid2"%>
+          <%=f.hidden_field :tid3, id:"tid3"%>
+      </div>
+
+      <div class="menu-edit" >
+      <% i=4%>
+      <% i.times do%>
+        <div class="number_frequency">
+          <div class= "menu-editor"></div>
+          <div class ="editer_info">
+            <div class="copy_training_title"></div>
+            <div class="menu_number">回数</div>
+            <%=f.text_field :number ,class:"number_select",value:"10",type:"number",min:"1"%>
+            <div class="number_times">回</div>
+            <div class="menu_frequency">頻度</div>
+            <%= f.text_field  :frequency_select, id: "frequency_select", class: "frequency_select",value:"3",type:"number" ,min:"1" %>
+            <div class="set_count">セット</div>
+          </div>
+        </div>
+      <%end%>
+      </div>
+      <%= f.submit(class:"menu_btn",value:"作成")%>
     <% end %>
-  </div >
+
+    </div>
+     <%# --------------------------------------------- %>
 
   <%# 自主トレ一覧 %>
   <div class="training-all">
@@ -45,20 +56,21 @@
     <div class="training">
       <% @training.each do |training| %>
         <div class = "training_list">
+          <%# <div class = "training_image" draggable="true" > %>
             <%= link_to menu_path(training.id), remote: true do  %>
-            <div class = "training_image" draggable="true" >
               <%=image_tag training.image4,data:{tid:training.id} ,class:"training_img"%>
-              <button type="button" class="addbutton" >➕</button>
-            </div>
-          <% end%>
-            <div class ="training_info">
-              <%= check_box_tag :invalid_flag, value = "stretch", training.stretch ,disabled:"disabled",class:"invalid_flag",type:"hidden"%>
-              <%= check_box_tag :invalid_flag, value = "muscle_training", training.muscle_training ,disabled:"disabled",class:"invalid_flag",type:"hidden"%>
-              <%= check_box_tag :invalid_flag, value = "stability", training.stability ,disabled:"disabled",class:"invalid_flag",type:"hidden"%>
-            </div> 
-            <div class="training_title">
-              <%= training.training_title%>
-            </div>
+            <% end%>
+          <%# </div> %>
+          <div class="training_title">
+            <%= training.training_title%>
+          </div>
+          <div class ="training_info">
+            <li><%= check_box_tag :invalid_flag, value = "stretch", training.stretch ,disabled:"disabled",class:"invalid_flag"%>ストレッチ</li>
+            <li><%= check_box_tag :invalid_flag, value = "muscle_training", training.muscle_training ,disabled:"disabled",class:"invalid_flag"%>筋トレ</li>
+            <li><%= check_box_tag :invalid_flag, value = "stability", training.stability ,disabled:"disabled",class:"invalid_flag"%>スタビリティ</li>
+          </div> 
+
+          <button type="button" class="addbutton" >➕</button>
         </div>
       <% end %>
     </div>
@@ -67,28 +79,11 @@
 
 
 <%# 詳細ページのモーダル %>
-  <div id="mask" class="hidden"></div>
-  <div id="modal" class="hidden">
-    <p>モーダルウィンドウ<p>
-  </div>
+<div id="mask" class="hidden"></div>
+<div id="modal" class="hidden">
+  <p>モーダルウィンドウ<p>
+</div>
 
-   <!-- モーダルエリアここから -->
- <%# 部位から選択のモーダル %>
-  <section id="modalArea" class="modalArea">
-    <div id="modalBg" class="modalBg"></div>
-    <div class="modalWrapper">
-      <div class="modalContents">
-        <%# ここにモーダルの詳細を記載 %>
-        <div class ="render_modal">
-          <%= render "menu/joint_filter_modal" %>
-          <%= render "menu/position_filter_modal" %>
-        </div>
-      </div>
-      <div id="closeModal" class="closeModal">
-        ×
-      </div>
-    </div>
-  </section>
-<!-- モーダルエリアここまで -->
+
 
 
