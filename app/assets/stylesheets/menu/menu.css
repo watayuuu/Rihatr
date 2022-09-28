@@ -221,7 +221,7 @@
   position: absolute;/*絶対配置*/
   top: 0;
   right: 0;
-  z-index: 10;
+  z-index: 2;
   cursor: copy;
 }
 

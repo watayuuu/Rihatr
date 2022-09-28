@@ -100,7 +100,7 @@ class MenuController < ApplicationController
       @filter = filter.where(mascle_name)
     end
     respond_to do |format|
-      format.html { redirect_to :root }
+      binding.pry
       format.json {}
     end
   end

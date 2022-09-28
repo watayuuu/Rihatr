@@ -122,7 +122,7 @@
   background-color: #808080;            /* メニューの背景色 */
   top: 70px;                            /* メニューの表示位置縦 */
  right: 0;                              /*  メニューの表示位置横   */
-  z-index: 1000;                          /* メニューの重なり位置 */
+  z-index: 3;                          /* メニューの重なり位置 */
   overflow: scroll;
 }
 

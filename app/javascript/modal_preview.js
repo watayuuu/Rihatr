@@ -11,18 +11,7 @@ $(function () {
       // $(".filter_butten").removeClass("testaaa");
     $('.modalArea').fadeOut();
     });
-
-
   });
-
-
- 
-
- 
-
-
-
-
 
   // サイドメニューのホバー処理
   $(".filter_butten").hover(

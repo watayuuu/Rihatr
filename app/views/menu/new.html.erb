@@ -3,8 +3,9 @@
     <%= form_with model: @training,url: menu_index_path, method: :post, local: true do |f|%>
       <div class="show_mascle-information">
 
-        <div class="show_information">
-            <%= f.file_field :image %>
+        <div class="new_information">
+          <%=f.label :image, "画像をアップロード", class: "image_input_btn"%>
+            <%= f.file_field :image , class: "image_form"%>
              <%# プレビュー画面のコード %>
             <div id="image-list"></div>
             <%# --------------------------- %>

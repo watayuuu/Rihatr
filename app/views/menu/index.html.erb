@@ -4,16 +4,16 @@
 <%# サイドバー %>
 <%= render "menu/side" %>
 <div class="main_menu">
-      <%# ハンバーガーメニュー %>
-      <div id="menu_btn" class="openbtn">
-       <div class= "cartcount"></div>
-         <span></span>
-         <span></span>
-         <span></span>
-      </div>
+  <%# ハンバーガーメニュー %>
+  <div id="menu_btn" class="openbtn">
+    <div class= "cartcount"></div>
+      <span></span>
+      <span></span>
+      <span></span>
+   </div>
     <%# ハンバーガーメニューの中身 %>
     <div id="menu" class="SlideOut">
-  <%# 自主トレフォーム %>
+       <%# 自主トレフォーム %>
     <%= form_with url: preview_menu_index_path,method: :post,local: true do |f| %>
       <div class ="form">
         <div class ="menu_form"><%=f.text_field :name , class:"name_form",placeholder:"利用者名を入力",autocomplete: 'off'%></div>
@@ -69,7 +69,6 @@
             <li><%= check_box_tag :invalid_flag, value = "muscle_training", training.muscle_training ,disabled:"disabled",class:"invalid_flag"%>筋トレ</li>
             <li><%= check_box_tag :invalid_flag, value = "stability", training.stability ,disabled:"disabled",class:"invalid_flag"%>スタビリティ</li>
           </div> 
-
           <button type="button" class="addbutton" >➕</button>
         </div>
       <% end %>
