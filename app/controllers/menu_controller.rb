@@ -100,7 +100,7 @@ class MenuController < ApplicationController
       @filter = filter.where(mascle_name)
     end
     respond_to do |format|
-      binding.pry
+      # binding.pry
       format.json {}
     end
   end
